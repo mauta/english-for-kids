@@ -1,50 +1,142 @@
 [{
-  "category": "food",
-  "categoryImg": "img",
-  "ruWord": "банан",
-  "enWord": "banana",
-  "img": "img",
-  "sound": ""
-},{
-  "category": "animals",
-  "categoryImg": "assets/img/icons8.png",
-  "ruWord": "банан",
-  "enWord": "banana",
-  "img": "img",
-  "sound": ""
-},{
-  "category": "animals",
-  "categoryImg": "img",
-  "ruWord": "банан",
-  "enWord": "banana",
-  "img": "img",
-  "sound": ""
-},{
-  "category": "colors",
-  "categoryImg": "img",
-  "ruWord": "банан",
-  "enWord": "banana",
-  "img": "img",
-  "sound": ""
-},{
-  "category": "home",
-  "categoryImg": "img",
-  "ruWord": "банан",
-  "enWord": "banana",
-  "img": "img",
-  "sound": ""
-},{
-  "category": "city",
-  "categoryImg": "img",
-  "ruWord": "банан",
-  "enWord": "banana",
-  "img": "img",
-  "sound": ""
-},{
-  "category": "family",
-  "categoryImg": "img",
-  "ruWord": "банан",
-  "enWord": "banana",
-  "img": "img",
-  "sound": ""
-}]
+    "category": "food",
+    "categoryImg": "img",
+    "data": [
+      {
+        "ruWord": "банан",
+        "enWord": "banana",
+        "img": "assets/img/banana.jpg",
+        "sound": ""
+      },
+      {
+        "ruWord": "яблоко",
+        "enWord": "apple",
+        "img": "assets/img/apple.jpg",
+        "sound": ""
+      },
+      {
+        "ruWord": "апельсин",
+        "enWord": "orange",
+        "img": "assets/img/orange.jpg",
+        "sound": ""
+      },
+      {
+        "ruWord": "киви",
+        "enWord": "kiwi",
+        "img": "assets/img/kiwi.jpg",
+        "sound": ""
+      },
+      {
+        "ruWord": "арбуз",
+        "enWord": "watermelon",
+        "img": "assets/img/watermelon.jpg",
+        "sound": ""
+      },
+      {
+        "ruWord": "виноград",
+        "enWord": "grape",
+        "img": "assets/img/grape.jpg",
+        "sound": ""
+      },
+      {
+        "ruWord": "лимон",
+        "enWord": "lemon",
+        "img": "assets/img/lemon.jpg",
+        "sound": ""
+      },
+      {
+        "ruWord": "груша",
+        "enWord": "pear",
+        "img": "assets/img/pear.jpg",
+        "sound": ""
+      }
+    ]
+  }, {
+    "category": "animals",
+    "categoryImg": "assets/img/icons8.png",
+    "data": [
+      {
+        "ruWord": "банан",
+        "enWord": "banana",
+        "img": "img",
+        "sound": ""
+      },
+      {
+        "ruWord": "банан",
+        "enWord": "orange",
+        "img": "img",
+        "sound": ""
+      }
+    ]
+  }, {
+      "category": "colors",
+      "categoryImg": "img",
+      "data": [
+        {
+          "ruWord": "банан",
+          "enWord": "banana",
+          "img": "img",
+          "sound": ""
+        },
+        {
+          "ruWord": "банан",
+          "enWord": "orange",
+          "img": "img",
+          "sound": ""
+        }
+      ]
+    },
+    {
+      "category": "home",
+      "categoryImg": "img",
+      "data": [
+        {
+          "ruWord": "банан",
+          "enWord": "banana",
+          "img": "img",
+          "sound": ""
+        },
+        {
+          "ruWord": "банан",
+          "enWord": "orange",
+          "img": "img",
+          "sound": ""
+        }
+      ]
+    },
+    {
+      "category": "city",
+      "categoryImg": "img",
+      "data": [
+        {
+          "ruWord": "банан",
+          "enWord": "banana",
+          "img": "img",
+          "sound": ""
+        },
+        {
+          "ruWord": "банан",
+          "enWord": "orange",
+          "img": "img",
+          "sound": ""
+        }
+      ]
+    },
+    {
+      "category": "family",
+      "categoryImg": "img",
+      "data": [
+        {
+          "ruWord": "банан",
+          "enWord": "banana",
+          "img": "img",
+          "sound": ""
+        },
+        {
+          "ruWord": "банан",
+          "enWord": "orange",
+          "img": "img",
+          "sound": ""
+        }
+      ]
+    }]
