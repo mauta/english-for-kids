@@ -1,41 +1,48 @@
 [{
   "category": "food",
+  "categoryImg": "img",
   "ruWord": "банан",
   "enWord": "banana",
   "img": "img",
   "sound": ""
 },{
   "category": "animals",
+  "categoryImg": "assets/img/icons8.png",
   "ruWord": "банан",
   "enWord": "banana",
   "img": "img",
   "sound": ""
 },{
   "category": "animals",
+  "categoryImg": "img",
   "ruWord": "банан",
   "enWord": "banana",
   "img": "img",
   "sound": ""
 },{
   "category": "colors",
+  "categoryImg": "img",
   "ruWord": "банан",
   "enWord": "banana",
   "img": "img",
   "sound": ""
 },{
   "category": "home",
+  "categoryImg": "img",
   "ruWord": "банан",
   "enWord": "banana",
   "img": "img",
   "sound": ""
 },{
   "category": "city",
+  "categoryImg": "img",
   "ruWord": "банан",
   "enWord": "banana",
   "img": "img",
   "sound": ""
 },{
   "category": "family",
+  "categoryImg": "img",
   "ruWord": "банан",
   "enWord": "banana",
   "img": "img",

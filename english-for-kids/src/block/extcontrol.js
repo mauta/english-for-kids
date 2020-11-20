@@ -2,11 +2,12 @@
 import Control from '../utils/control';
 
 export default class ExtControl extends Control {
-  constructor(parentNode, className = '', className2 = '', content = '', onclick) {
-    super(parentNode, 'div', className, content);
+  constructor(parentNode, className = '', className2 = '', content = '', bgrImg = '', onclick) {
+    super(parentNode, 'div', className, content, bgrImg);
     this.isChecked = false;
     this.className = className;
     this.className2 = className2;
+    this.bgrImg = bgrImg;
     this.onClick = onclick;
 
     this.node.onclick = () => {

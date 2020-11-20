@@ -14,8 +14,8 @@ export default class Menu extends Control {
     this.onChange = () => {};
   }
 
-  addItem(content) {
-    const elem = new ExtControl(this.node, this.itemClassName, this.itemClassNameSelected, content, () => {
+  addItem(content, url) {
+    const elem = new ExtControl(this.node, this.itemClassName, this.itemClassNameSelected, content, url, () => {
       this.select(this.arr.indexOf(elem));
     });
     this.arr.push(elem);

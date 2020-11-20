@@ -1,22 +1,26 @@
 import Menu from './block/menu';
 import Control from './utils/control';
+import Card from './block/card';
 
 fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   const category = new Set();
+  const arrMenu = [];
 
   for (let i = 0; i < json.length; i += 1) {
     category.add(json[i].category);
   }
+  category.forEach((categItem) => {
+    const a = json.find((item) => item.category === categItem);
+    arrMenu.push([a.category, a.categoryImg]);
+  });
 
   const elem = new Menu(document.body, '', 'cl cl5', 'cl cl6');
 
+  arrMenu.forEach((item) => elem.addItem(item[0], item[1]));
+
   elem.onChange = (ind) => {
-    location.hash = ind;
+    location.hash = arrMenu[ind][0];
   };
-
-  category.forEach((item) => elem.addItem(item));
-
-
 
   const el = new Control(document.body);
 
@@ -25,13 +29,20 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
       case '#0':
         el.node.innerHTML = 'test content 0';
         break;
-      case '#1':
-        el.node.innerHTML = 'test content 1';
+      case '#food':
+        const arrrrrr = []
+        json.forEach((item) => {
+          if (item.category === 'animals');
+          arrrrrr.push(item);
+        });
+        for (let i = 0; i < arrrrrr.length; i += 1) {
+          new Card(el, 'card', '', arrrrrr[i].ruWord, arrrrrr[i].enWord, arrrrrr[i].bgrImg, arrrrrr[i].sound);
+        }
         break;
-      case '#2':
+      case '#animals':
         el.node.innerHTML = 'test content 2';
         break;
-      case '#3':
+      case '#colors':
         el.node.innerHTML = 'test content 3';
         break;
       case '#4':
