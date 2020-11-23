@@ -10,8 +10,9 @@ export default class MenuCard extends Control {
     this.className = className;
     this.className2 = className2;
 
-
+    this.node.onclick = () => {
+      const choice = dataArr[0];
+      location.hash = choice;
+    };
   }
-
-
 }
