@@ -1,8 +1,7 @@
 [{
     "category": "food",
     "categoryImg": "img",
-    "data": [
-      {
+    "data": [{
         "ruWord": "банан",
         "enWord": "banana",
         "img": "assets/img/banana.jpg",
@@ -53,9 +52,111 @@
     ]
   }, {
     "category": "animals",
-    "categoryImg": "assets/img/icons8.png",
-    "data": [
+    "categoryImg": "assets/img/animal.png",
+    "data": [{
+        "ruWord": "медведь",
+        "enWord": "bear",
+        "img": "assets/img/bear.png",
+        "sound": ""
+      },
       {
+        "ruWord": "собака",
+        "enWord": "dog",
+        "img": "assets/img/dog.png",
+        "sound": ""
+      },
+      {
+        "ruWord": "слон",
+        "enWord": "elephant",
+        "img": "assets/img/elephant.png",
+        "sound": ""
+      },
+      {
+        "ruWord": "лиса",
+        "enWord": "fox",
+        "img": "assets/img/fox.png",
+        "sound": ""
+      },
+      {
+        "ruWord": "коза",
+        "enWord": "goat",
+        "img": "assets/img/goat.png",
+        "sound": ""
+      },
+      {
+        "ruWord": "панда",
+        "enWord": "panda",
+        "img": "assets/img/panda.png",
+        "sound": ""
+      },
+      {
+        "ruWord": "свинья",
+        "enWord": "pig",
+        "img": "assets/img/pig.png",
+        "sound": ""
+      },
+      {
+        "ruWord": "кролик",
+        "enWord": "rabbit",
+        "img": "assets/img/rabbit.png",
+        "sound": ""
+      }
+    ]
+  }, {
+    "category": "colors",
+    "categoryImg": "img",
+    "data": [{
+        "ruWord": "банан",
+        "enWord": "banana",
+        "img": "img",
+        "sound": ""
+      },
+      {
+        "ruWord": "банан",
+        "enWord": "orange",
+        "img": "img",
+        "sound": ""
+      }
+    ]
+  },
+  {
+    "category": "body",
+    "categoryImg": "img",
+    "data": [{
+        "ruWord": "банан",
+        "enWord": "banana",
+        "img": "img",
+        "sound": ""
+      },
+      {
+        "ruWord": "банан",
+        "enWord": "orange",
+        "img": "img",
+        "sound": ""
+      }
+    ]
+  },
+  {
+    "category": "clothes",
+    "categoryImg": "img",
+    "data": [{
+        "ruWord": "банан",
+        "enWord": "banana",
+        "img": "img",
+        "sound": ""
+      },
+      {
+        "ruWord": "банан",
+        "enWord": "orange",
+        "img": "img",
+        "sound": ""
+      }
+    ]
+  },
+  {
+    "category": "emotions",
+    "categoryImg": "img",
+    "data": [{
         "ruWord": "банан",
         "enWord": "banana",
         "img": "img",
@@ -69,114 +170,41 @@
       }
     ]
   }, {
-      "category": "colors",
-      "categoryImg": "img",
-      "data": [
-        {
-          "ruWord": "банан",
-          "enWord": "banana",
-          "img": "img",
-          "sound": ""
-        },
-        {
-          "ruWord": "банан",
-          "enWord": "orange",
-          "img": "img",
-          "sound": ""
-        }
-      ]
-    },
-    {
-      "category": "body",
-      "categoryImg": "img",
-      "data": [
-        {
-          "ruWord": "банан",
-          "enWord": "banana",
-          "img": "img",
-          "sound": ""
-        },
-        {
-          "ruWord": "банан",
-          "enWord": "orange",
-          "img": "img",
-          "sound": ""
-        }
-      ]
-    },
-    {
-      "category": "clothes",
-      "categoryImg": "img",
-      "data": [
-        {
-          "ruWord": "банан",
-          "enWord": "banana",
-          "img": "img",
-          "sound": ""
-        },
-        {
-          "ruWord": "банан",
-          "enWord": "orange",
-          "img": "img",
-          "sound": ""
-        }
-      ]
-    },
-    {
-      "category": "emotions",
-      "categoryImg": "img",
-      "data": [
-        {
-          "ruWord": "банан",
-          "enWord": "banana",
-          "img": "img",
-          "sound": ""
-        },
-        {
-          "ruWord": "банан",
-          "enWord": "orange",
-          "img": "img",
-          "sound": ""
-        }
-      ]
-    }, {
-      "category": "nature",
-      "categoryImg": "img",
-      "data": [
-        {
-          "ruWord": "банан",
-          "enWord": "banana",
-          "img": "img",
-          "sound": ""
-        },
-        {
-          "ruWord": "банан",
-          "enWord": "orange",
-          "img": "img",
-          "sound": ""
-        }
-      ]
-    },  {
-      "category": "space",
-      "categoryImg": "img",
-      "data": [
-        {
-          "ruWord": "банан",
-          "enWord": "banana",
-          "img": "img",
-          "sound": ""
-        },
-        {
-          "ruWord": "банан",
-          "enWord": "orange",
-          "img": "img",
-          "sound": ""
-        }
-      ]
-    }
+    "category": "nature",
+    "categoryImg": "img",
+    "data": [{
+        "ruWord": "банан",
+        "enWord": "banana",
+        "img": "img",
+        "sound": ""
+      },
+      {
+        "ruWord": "банан",
+        "enWord": "orange",
+        "img": "img",
+        "sound": ""
+      }
+    ]
+  }, {
+    "category": "space",
+    "categoryImg": "img",
+    "data": [{
+        "ruWord": "банан",
+        "enWord": "banana",
+        "img": "img",
+        "sound": ""
+      },
+      {
+        "ruWord": "банан",
+        "enWord": "orange",
+        "img": "img",
+        "sound": ""
+      }
+    ]
+  }
 
 
 
 
 
-  ]
+]

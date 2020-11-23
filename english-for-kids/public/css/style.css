@@ -22,6 +22,8 @@ body {
 h1 {
   text-align: center;
   letter-spacing: 2px;
+  order: 2;
+  display: block;
 }
 
 .main {
@@ -37,6 +39,7 @@ h1 {
 }
 
 .card {
+  position: relative;
   width: 15vw;
   min-width: 150px;
   border: 1px solid black;
@@ -47,7 +50,15 @@ h1 {
   -o-border-radius: 3px;
   margin: 0 1vw 2vw;
   cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+  box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, .1em .1em .2em gray;
+}
 
+.card:hover {
+  top: .1em;
+  left: .1em;
+  box-shadow: 0 0 0;
 }
 
 .card-img {
@@ -67,9 +78,12 @@ h1 {
   width: 50px;
   height: 50px;
   background-color: green;
+  order: 1;
 }
 
-
+.mode {
+  order: 3;
+}
 
 .menu {
   position: absolute;
@@ -189,3 +203,50 @@ h1 {
 #button-11 .checkbox:checked~.layer {
   background-color: #fcebeb;
 }
+
+.btn-changeling {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  color: transparent;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  background-image: url(../assets/img/reload.svg);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-changeling:hover {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.ruWord {
+  display: none;
+}
+
+.enWord {
+  font-size: 25px;
+  display: block;
+  text-align: center;
+}
+
+
+

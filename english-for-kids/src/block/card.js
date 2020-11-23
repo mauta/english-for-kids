@@ -18,6 +18,6 @@ export default class Card extends Control {
   }
 
   changeMode() {
-    this.node.style.backgroundColor = (this.isPlayMode) ? 'red' : 'green';
+    // this.node.style.backgroundColor = (this.isPlayMode) ? 'red' : 'green';
   }
 }
