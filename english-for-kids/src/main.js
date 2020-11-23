@@ -10,8 +10,8 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   const header = new Control(document.body, 'header', 'header');
   const burger = new Control(header.node, 'div', 'burger');
   const mode = new Control(header.node, 'div', 'mode', '<div class="button" id="button-11"><input type="checkbox" class="checkbox"><div class="knobs"><span></span></div> <div class="layer"></div></div>');
- 
- 
+  const playMode = new Control(mode.node, 'div', 'test');
+  const isPlayMode = false;
   const main = new Control(document.body, 'main', 'main', '<h1>English for kids </h1>');
   const field = new Control(main.node, 'div', 'field');
   const elem = new Menu(main.node, 'menu', 'menu__item menu__item--none', 'menu__item menu__item--selected');
@@ -40,7 +40,8 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;
         // надо сделать рандоайзер для карточек
         for (let i = 0; i < ourCategoryData.length; i += 1) {
-          new Card(field.node, 'card', 'card2', ourCategoryData[i]);
+          const car = new Card(field.node, 'card', 'card2', ourCategoryData[i], isPlayMode);
+          car.changeMode();
         }
     }
 
