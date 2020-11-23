@@ -87,7 +87,7 @@
       ]
     },
     {
-      "category": "home",
+      "category": "body",
       "categoryImg": "img",
       "data": [
         {
@@ -105,7 +105,7 @@
       ]
     },
     {
-      "category": "city",
+      "category": "clothes",
       "categoryImg": "img",
       "data": [
         {
@@ -123,7 +123,7 @@
       ]
     },
     {
-      "category": "family",
+      "category": "emotions",
       "categoryImg": "img",
       "data": [
         {
@@ -139,4 +139,44 @@
           "sound": ""
         }
       ]
-    }]
+    }, {
+      "category": "nature",
+      "categoryImg": "img",
+      "data": [
+        {
+          "ruWord": "банан",
+          "enWord": "banana",
+          "img": "img",
+          "sound": ""
+        },
+        {
+          "ruWord": "банан",
+          "enWord": "orange",
+          "img": "img",
+          "sound": ""
+        }
+      ]
+    },  {
+      "category": "space",
+      "categoryImg": "img",
+      "data": [
+        {
+          "ruWord": "банан",
+          "enWord": "banana",
+          "img": "img",
+          "sound": ""
+        },
+        {
+          "ruWord": "банан",
+          "enWord": "orange",
+          "img": "img",
+          "sound": ""
+        }
+      ]
+    }
+
+
+
+
+
+  ]

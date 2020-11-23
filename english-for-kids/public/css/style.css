@@ -1,11 +1,22 @@
+@font-face {
+	font-family: 'NeSkid';
+	src: url('font/neskid_comica_bd_id120055769.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('font/neskid_comica_bd_id120055769.woff2') format('woff2'), /* Super Modern Browsers */
+		url('font/neskid_comica_bd_id120055769.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('font/neskid_comica_bd_id120055769.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('font/neskid_comica_bd_id120055769.svg#neskid_comica_bd_id120055769') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+
 
 body{
+  font-family:'NeSkid';
   margin: 0;
   padding: 0;
 }
 
 h1{
   text-align: center;
+  letter-spacing: 2px;
 }
 
 .main{
@@ -30,6 +41,7 @@ h1{
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   margin: 0 1vw 2vw;
+  cursor: pointer;
 
 }
 

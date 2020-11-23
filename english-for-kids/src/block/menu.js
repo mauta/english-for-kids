@@ -9,7 +9,7 @@ export default class Menu extends Control {
     this.className = className;
     this.itemClassName = itemClassName;
     this.itemClassNameSelected = itemClassNameSelected;
-
+    this.content = [];
     this.arr = [];
     this.onChange = () => {};
   }
@@ -18,7 +18,7 @@ export default class Menu extends Control {
     const elem = new ExtControl(this.node, this.itemClassName, this.itemClassNameSelected, content, url, () => {
       this.select(this.arr.indexOf(elem));
     });
-    elem.node.dataset.key = content;
+    this.content.push(content);
     this.arr.push(elem);
   }
 
