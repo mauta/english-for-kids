@@ -7,6 +7,11 @@ import Card from './block/card';
 import MenuCard from './block/menu_card';
 
 fetch('../assets/data.json').then((res) => res.json()).then((json) => {
+  const header = new Control(document.body, 'header', 'header');
+  const burger = new Control(header.node, 'div', 'burger');
+  const mode = new Control(header.node, 'div', 'mode', '<div class="button" id="button-11"><input type="checkbox" class="checkbox"><div class="knobs"><span></span></div> <div class="layer"></div></div>');
+ 
+ 
   const main = new Control(document.body, 'main', 'main', '<h1>English for kids </h1>');
   const field = new Control(main.node, 'div', 'field');
   const elem = new Menu(main.node, 'menu', 'menu__item menu__item--none', 'menu__item menu__item--selected');
