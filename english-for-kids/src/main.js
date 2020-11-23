@@ -43,7 +43,7 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;
         // надо сделать рандоайзер для карточек
         for (let i = 0; i < ourCategoryData.length; i += 1) {
-          const car = new Card(field.node, 'card', 'card2', ourCategoryData[i], isPlayMode);
+          const car = new Card(field.node, 'flip-container', ourCategoryData[i], isPlayMode);
           car.changeMode();
         }
     }
