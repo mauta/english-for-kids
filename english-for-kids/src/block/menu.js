@@ -13,14 +13,22 @@ export default class Menu extends Control {
     this.content = [];
     this.arr = [];
     this.onChange = () => {};
-
+    this.transLayer = new Control(this.node, 'div', 'transLayer');
     this.burger = new Burger(this.node, 'burger');
+
+    this.transLayer.node.onclick = () => {
+      this.burger.node.classList.remove('is-active');
+      this.node.classList.remove('menu-active');
+      this.transLayer.node.style.display = 'none';
+    };
 
     this.burger.node.onclick = () => {
       if (this.burger.node.classList.contains('is-active')) {
         this.burger.node.classList.remove('is-active');
         this.node.classList.remove('menu-active');
+        this.transLayer.node.style.display = 'none';
       } else {
+        this.transLayer.node.style.display = 'block';
         this.burger.node.classList.add('is-active');
         this.node.classList.add('menu-active');
       }

@@ -164,12 +164,18 @@ h1 {
 
 .header {
   padding: 50px 50px 10px;
-  position: sticky;
+  background-color: var(--bg-color);
+}
+
+.transLayer{
+  display: none;
+  background-color: transparent;
+  position: fixed;
   top: 0;
   left: 0;
+  bottom: 0;
   right: 0;
-  z-index: 2;
-  background-color: var(--bg-color);
+  z-index: -1;
 }
 
 .menu {
