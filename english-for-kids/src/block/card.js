@@ -20,9 +20,18 @@ export default class Card extends Control {
     this.className = className;
     this.isPlayMode = mode;
     this.bnt = this.node.querySelector('.btn-changeling');
+    this.front = this.node.querySelector('.front');
+    this.audio = this.node.querySelector('audio');
 
-    this.bnt.addEventListener('click', () => {
+    this.bnt.addEventListener('click', (e) => {
+      e.stopPropagation();
       this.node.classList.add('active');
+    });
+
+    this.front.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.audio.currentTime = 0;
+      this.audio.play();
     });
 
     this.node.addEventListener('mouseleave', () => {

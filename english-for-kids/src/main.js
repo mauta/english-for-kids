@@ -9,15 +9,25 @@ import Toggle from './block/toggle';
 
 fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   const header = new Control(document.body, 'header', 'header', '<h1>English for kids </h1>');
-  const burger = new Control(header.node, 'div', 'burger');
+  const burger = new Control(header.node, 'div', 'burger', '<button class="btn-burger" type="button" aria-label="menu"><span class="btn-burger-line"></span></button>');
   const mode = new Toggle(header.node, 'mode');
   const isPlayMode = mode.isChecked;
   const main = new Control(document.body, 'main', 'main');
   const field = new Control(main.node, 'div', 'field');
-  const elem = new Menu(main.node, 'menu', 'menu__item menu__item--none', 'menu__item menu__item--selected');
+  const elem = new Menu(burger.node, 'menu', 'menu__item menu__item--none', 'menu__item menu__item--selected');
   elem.addItem('menu');
   json.forEach((item) => elem.addItem(item.category, item.categoryImg));
   elem.addItem('score');
+
+  burger.node.addEventListener('click', () => {
+    if (burger.node.classList.contains('is-active')) {
+      burger.node.classList.remove('is-active');
+      elem.node.classList.remove('menu-active');
+    } else {
+      burger.node.classList.add('is-active');
+      elem.node.classList.add('menu-active');
+    }
+  });
 
   elem.onChange = (ind) => {
     location.hash = elem.content[ind];
@@ -28,7 +38,7 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
     const categoryHash = location.hash.slice(1);
     const isPlayMode = mode.isChecked;
 
-     document.body.style.backgroundColor = (isPlayMode) ? '#fcebeb' : '#ebf7fc';
+    document.body.style.backgroundColor = (isPlayMode) ? '#CDFFA6' : '#ebf7fc';
     switch (categoryHash) {
       case 'menu':
         for (let i = 0; i < json.length; i += 1) {

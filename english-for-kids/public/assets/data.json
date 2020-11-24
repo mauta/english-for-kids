@@ -57,49 +57,49 @@
         "ruWord": "медведь",
         "enWord": "bear",
         "img": "assets/img/bear.png",
-        "sound": ""
+        "sound": "assets/sound/bear.mp3"
       },
       {
         "ruWord": "собака",
         "enWord": "dog",
         "img": "assets/img/dog.png",
-        "sound": ""
+        "sound": "assets/sound/dog.mp3"
       },
       {
         "ruWord": "слон",
         "enWord": "elephant",
         "img": "assets/img/elephant.png",
-        "sound": ""
+        "sound": "assets/sound/elephant.mp3"
       },
       {
         "ruWord": "лиса",
         "enWord": "fox",
         "img": "assets/img/fox.png",
-        "sound": ""
+        "sound": "assets/sound/fox.mp3"
       },
       {
         "ruWord": "коза",
         "enWord": "goat",
         "img": "assets/img/goat.png",
-        "sound": ""
+        "sound": "assets/sound/goat.mp3"
       },
       {
         "ruWord": "панда",
         "enWord": "panda",
         "img": "assets/img/panda.png",
-        "sound": ""
+        "sound": "assets/sound/panda.mp3"
       },
       {
         "ruWord": "свинья",
         "enWord": "pig",
         "img": "assets/img/pig.png",
-        "sound": ""
+        "sound": "assets/sound/pig.mp3"
       },
       {
         "ruWord": "кролик",
         "enWord": "rabbit",
         "img": "assets/img/rabbit.png",
-        "sound": ""
+        "sound": "assets/sound/rabbit.mp3"
       }
     ]
   }, {

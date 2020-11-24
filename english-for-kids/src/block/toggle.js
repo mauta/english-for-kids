@@ -11,6 +11,17 @@ export default class Toggle extends Control {
     this.isChecked = false;
     this.node.onclick = () => {
       this.isChecked = !this.isChecked;
+      const root = document.querySelector(':root');
+
+      if (this.isChecked) {
+        root.style.setProperty('--bg-color', '#CDFFA6');
+        root.style.setProperty('--hover-color', '#59A61E');
+        root.style.setProperty('--select-color', '#8CBF64');
+      } else {
+        root.style.setProperty('--bg-color', '#ebf7fc');
+        root.style.setProperty('--hover-color', '#03a9f4');
+        root.style.setProperty('--select-color', '#74cef8');
+      }
     };
   }
 }

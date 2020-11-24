@@ -7,11 +7,18 @@
     url('font/neskid_comica_bd_id120055769.svg#neskid_comica_bd_id120055769') format('svg');
 }
 
+:root {
+  --bg-color: #ebf7fc;
+  --hover-color: #03a9f4;
+  --select-color:  #74cef8;
+}
+
 
 body {
   font-family: 'NeSkid';
   margin: 0;
   padding: 0;
+  background-color: var(--bg-color);
 }
 
 h1 {
@@ -27,11 +34,99 @@ h1 {
 
 .field {
   width: 70vw;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.btn-burger {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-burger-line {
+  position: absolute;
+  width: 40px;
+  height: 5px;
+  display: block;
+  background-color: black;
+}
+
+.btn-burger:hover .btn-burger-line,
+.btn-burger:hover .btn-burger-line::after,
+.btn-burger:hover .btn-burger-line::before {
+  background-color: var(--hover-color);
+}
+
+
+.btn-burger-line:after {
+  position: absolute;
+  bottom: 10px;
+  content: '';
+  width: 40px;
+  height: 5px;
+  display: block;
+  background-color: black;
+}
+
+.btn-burger-line:before {
+  position: absolute;
+  top: 10px;
+  content: '';
+  width: 40px;
+  height: 5px;
+  display: block;
+  background-color: black;
+}
+
+
+.btn-burger-line:after,
+.btn-burger-line:before {
+  transition-duration: 0.3s, 0.3s;
+  transition-delay: 0.3s, 0;
+}
+
+.btn-burger-line:after {
+  transition-property: top, transform;
+}
+
+.btn-burger-line:before {
+  transition-property: bottom, transform;
+}
+
+.is-active .btn-burger-line {
+  transform: rotate(45deg);
+  transition-delay: 0s, 0.3s;
+}
+
+
+.is-active .btn-burger-line::before {
+  top: 0;
+  transform: rotate(90deg);
+  transition-delay: 0s, 0.3s;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}
+
+.is-active .btn-burger-line::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition-delay: 0s, 0.3s;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+}
+
 
 .card {
   position: relative;
@@ -59,6 +154,7 @@ h1 {
 .card-img {
   width: 100%;
   height: 70%;
+  margin-bottom: 10px;
 
 }
 
@@ -69,35 +165,51 @@ h1 {
 }
 
 .burger {
+  position: relative;
   display: block;
-  width: 50px;
-  height: 50px;
-  background-color: green;
   order: 1;
+  background-color: transparent;
 }
+
+
 
 .mode {
   order: 3;
 }
 
 .menu {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  background-color: blanchedalmond;
+  display: block;
+  position: fixed;
+  margin-left: -100%;
+  width: 150px;
+  top: 100px;
+  left: 0px;
+  bottom: 0;
+  background-color: transparent;
+  z-index: 2;
+  transition: all ease 1s;
+  -webkit-transition: all ease 1s;
+  -moz-transition: all ease 1s;
+  -ms-transition: all ease 1s;
+  -o-transition: all ease 1s;
+}
+
+.menu-active {
+  margin-left: 0;
 }
 
 .menu__item {
   cursor: pointer;
   padding: 10px;
+  text-align: center;
 }
 
 .menu__item:hover {
-  color: red;
+  color: var(--hover-color);
 }
 
 .menu__item--selected {
-  background-color: cadetblue;
+  background-color: var(--select-color);
 }
 
 
@@ -192,11 +304,11 @@ h1 {
 
 #button-11 .checkbox:checked+.knobs span {
   transform: rotateY(-180deg);
-  background-color: #f44336;
+  background-color: var(--select-color)
 }
 
 #button-11 .checkbox:checked~.layer {
-  background-color: #fcebeb;
+  background-color: var(--bg-color)
 }
 
 .btn-changeling {
@@ -265,7 +377,6 @@ h1 {
 .flipper {
   transition: 0.6s;
   transform-style: preserve-3d;
-
   position: relative;
 }
 
@@ -303,4 +414,11 @@ h1 {
   border: 1px solid black;
   box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, .1em .1em .2em gray;
   transform: rotateY(180deg);
+}
+
+.front:hover,
+.back:hover {
+  top: .1em;
+  left: .1em;
+  box-shadow: 0 0 0;
 }
