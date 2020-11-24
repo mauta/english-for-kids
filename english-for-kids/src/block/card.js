@@ -28,15 +28,29 @@ export default class Card extends Control {
       this.node.classList.add('active');
     });
 
-    this.front.addEventListener('click', (e) => {
-      e.stopPropagation();
-      this.audio.currentTime = 0;
-      this.audio.play();
-    });
+    if (this.isPlayMode) {
+      console.log('играем');
 
-    this.node.addEventListener('mouseleave', () => {
-      this.node.classList.remove('active');
-    });
+      this.node.classList.add('flipper--play')
+    } else {
+      console.log('треним');
+
+      this.bnt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.node.classList.add('active');
+      });
+
+      this.node.addEventListener('mouseleave', () => {
+        this.node.classList.remove('active');
+      });
+
+      this.front.addEventListener('click', (e) => {
+        this.audio.currentTime = 0;
+        this.audio.play();
+      });
+    }
+
+    // this.node.addEventListener('click', action);
   }
 
   changeMode() {

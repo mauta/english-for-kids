@@ -18,7 +18,7 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   json.forEach((item) => elem.addItem(item.category, item.categoryImg));
   elem.addItem('score');
 
-  const isPlayMode = mode.isChecked;
+  let isPlayMode = mode.isChecked;
 
   elem.onChange = (ind) => {
     location.hash = elem.content[ind];
@@ -27,9 +27,10 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   window.onpopstate = () => {
     field.clear();
     const categoryHash = location.hash.slice(1);
-    const isPlayMode = mode.isChecked;
+    isPlayMode = mode.isChecked;
 
-    document.body.style.backgroundColor = (isPlayMode) ? '#CDFFA6' : '#ebf7fc';
+    field.node.style.paddingTop = (isPlayMode) ? '50px' : '0';
+
     switch (categoryHash) {
       case 'menu':
         for (let i = 0; i < json.length; i += 1) {

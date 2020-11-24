@@ -30,6 +30,8 @@ export default class Menu extends Control {
   addItem(content, url) {
     const elem = new ExtControl(this.node, this.itemClassName, this.itemClassNameSelected, content, url, () => {
       this.select(this.arr.indexOf(elem));
+      this.burger.node.classList.remove('is-active');
+      this.node.classList.remove('menu-active');
     });
     this.content.push(content);
     this.arr.push(elem);
