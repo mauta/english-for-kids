@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-expressions */
 import Control from '../utils/control';
 import ExtControl from './extcontrol';
+import Burger from './burger';
 
 export default class Menu extends Control {
   constructor(parentNode, className = '', itemClassName = '', itemClassNameSelected = '') {
@@ -12,6 +13,18 @@ export default class Menu extends Control {
     this.content = [];
     this.arr = [];
     this.onChange = () => {};
+
+    this.burger = new Burger(this.node, 'burger');
+
+    this.burger.node.onclick = () => {
+      if (this.burger.node.classList.contains('is-active')) {
+        this.burger.node.classList.remove('is-active');
+        this.node.classList.remove('menu-active');
+      } else {
+        this.burger.node.classList.add('is-active');
+        this.node.classList.add('menu-active');
+      }
+    };
   }
 
   addItem(content, url) {
