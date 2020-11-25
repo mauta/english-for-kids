@@ -29,7 +29,7 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
     const categoryHash = location.hash.slice(1);
     isPlayMode = mode.isChecked;
 
-    field.node.style.paddingTop = (isPlayMode) ? '50px' : '0';
+    // field.node.style.paddingTop = (isPlayMode) ? '50px' : '0';
 
     switch (categoryHash) {
       case 'menu':
@@ -45,8 +45,7 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;
         // надо сделать рандоайзер для карточек
         for (let i = 0; i < ourCategoryData.length; i += 1) {
-          const car = new Card(field.node, 'flip-container', ourCategoryData[i], isPlayMode);
-          car.changeMode();
+          new Card(field.node, 'flip-container', ourCategoryData[i], isPlayMode);
         }
     }
 

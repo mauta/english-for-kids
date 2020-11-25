@@ -9,6 +9,7 @@ export default class Toggle extends Control {
     this.className = className;
     this.className2 = className2;
     this.isChecked = false;
+
     this.node.onclick = () => {
       this.isChecked = !this.isChecked;
       const root = document.querySelector(':root');

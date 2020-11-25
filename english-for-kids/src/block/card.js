@@ -29,12 +29,8 @@ export default class Card extends Control {
     });
 
     if (this.isPlayMode) {
-      console.log('играем');
-
-      this.node.classList.add('flipper--play')
+      this.node.classList.add('flipper--play');
     } else {
-      console.log('треним');
-
       this.bnt.addEventListener('click', (e) => {
         e.stopPropagation();
         this.node.classList.add('active');
@@ -44,13 +40,11 @@ export default class Card extends Control {
         this.node.classList.remove('active');
       });
 
-      this.front.addEventListener('click', (e) => {
+      this.front.addEventListener('click', () => {
         this.audio.currentTime = 0;
         this.audio.play();
       });
     }
-
-    // this.node.addEventListener('click', action);
   }
 
   changeMode() {
