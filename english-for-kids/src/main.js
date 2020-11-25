@@ -6,19 +6,18 @@ import Control from './utils/control';
 import Card from './block/card';
 import MenuCard from './block/menu_card';
 import Toggle from './block/toggle';
+import Field from './block/feild';
 
 fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   const header = new Control(document.body, 'header', 'header', '<h1>English for kids </h1>');
   const mode = new Toggle(header.node, 'mode');
   const main = new Control(document.body, 'main', 'main');
-  const field = new Control(main.node, 'div', 'field');
+  const field = new Field(main.node, 'field', mode.isChecked);
   const elem = new Menu(header.node, 'menu', 'menu__item menu__item--none', 'menu__item menu__item--selected');
 
   elem.addItem('menu');
   json.forEach((item) => elem.addItem(item.category, item.categoryImg));
   elem.addItem('score');
-
-  let isPlayMode = mode.isChecked;
 
   elem.onChange = (ind) => {
     location.hash = elem.content[ind];
@@ -27,8 +26,7 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   window.onpopstate = () => {
     field.clear();
     const categoryHash = location.hash.slice(1);
-    isPlayMode = mode.isChecked;
-
+    field.modeStatus = mode.isChecked;
     // field.node.style.paddingTop = (isPlayMode) ? '50px' : '0';
 
     switch (categoryHash) {
@@ -43,9 +41,18 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         break;
       default:
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;
+
         // надо сделать рандомайзер для карточек
+        // for (let i = 0; i < ourCategoryData.length; i += 1) {
+        //   new Card(field.node, 'flip-container', ourCategoryData[i], isPlayMode);
+        // }
+
         for (let i = 0; i < ourCategoryData.length; i += 1) {
-          new Card(field.node, 'flip-container', ourCategoryData[i], isPlayMode);
+          field.addItem(ourCategoryData[i]);
+        }
+
+        if (mode.isChecked) {
+          field.play();
         }
     }
 

@@ -455,3 +455,10 @@ h1 {
 .flipper--play .front{
   height: 250px;
 }
+
+.btn-repiat{
+  width: 100px;
+  height: 50px;
+  align-self: center;
+  cursor: pointer;
+}
