@@ -226,6 +226,7 @@ h1 {
   position: fixed;
   top: 90px;
   right: 50px;
+  z-index:2;
 }
 
 .knobs,

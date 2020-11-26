@@ -24,8 +24,9 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   };
 
   window.onpopstate = () => {
-    field.clear();
     const categoryHash = location.hash.slice(1);
+    field.clear();
+    field.cards = [];
     field.modeStatus = mode.isChecked;
     // field.node.style.paddingTop = (isPlayMode) ? '50px' : '0';
 
@@ -41,12 +42,6 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         break;
       default:
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;
-
-        // надо сделать рандомайзер для карточек
-        // for (let i = 0; i < ourCategoryData.length; i += 1) {
-        //   new Card(field.node, 'flip-container', ourCategoryData[i], isPlayMode);
-        // }
-
         for (let i = 0; i < ourCategoryData.length; i += 1) {
           field.addItem(ourCategoryData[i]);
         }

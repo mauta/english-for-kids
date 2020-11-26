@@ -22,14 +22,14 @@ export default class Card extends Control {
     this.bnt = this.node.querySelector('.btn-changeling');
     this.front = this.node.querySelector('.front');
     this.audio = this.node.querySelector('audio');
-
-    this.bnt.addEventListener('click', (e) => {
-      e.stopPropagation();
-      this.node.classList.add('active');
-    });
+    this.enWord = data.enWord;
+    this.try = '';
 
     if (this.isPlayMode) {
       this.node.classList.add('flipper--play');
+      this.node.addEventListener('click', () => {
+        this.try = this.enWord;
+      });
     } else {
       this.bnt.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -47,7 +47,8 @@ export default class Card extends Control {
     }
   }
 
-  changeMode() {
-    // this.node.style.backgroundColor = (this.isPlayMode) ? 'red' : 'green';
+  playSound() {
+    this.audio.currentTime = 0;
+    this.audio.play();
   }
 }
