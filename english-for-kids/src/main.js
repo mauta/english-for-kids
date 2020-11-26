@@ -27,7 +27,6 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
     field.clear();
     const categoryHash = location.hash.slice(1);
     field.modeStatus = mode.isChecked;
-    // field.node.style.paddingTop = (isPlayMode) ? '50px' : '0';
 
     switch (categoryHash) {
       case 'menu':
@@ -41,18 +40,11 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         break;
       default:
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;
-
-        // надо сделать рандомайзер для карточек
-        // for (let i = 0; i < ourCategoryData.length; i += 1) {
-        //   new Card(field.node, 'flip-container', ourCategoryData[i], isPlayMode);
-        // }
-
         for (let i = 0; i < ourCategoryData.length; i += 1) {
           field.addItem(ourCategoryData[i]);
         }
-
         if (mode.isChecked) {
-          field.play();
+          field.playMode();
         }
     }
 
