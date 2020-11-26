@@ -463,3 +463,90 @@ h1 {
   align-self: center;
   cursor: pointer;
 }
+
+.game-panel{
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr;
+  width: 100%;
+  max-width: 100%;
+}
+
+.btn-play{
+  align-self: center;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.left-side{
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  max-width: calc(50%-25px);
+  overflow: hidden;
+}
+
+.right-side{
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  max-width: calc(50%-25px);
+  overflow: hidden;
+}
+
+.achieve{
+  display: block;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0
+}
+
+.popup-win{
+  display: block;
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  background-color: yellow;
+  box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, .1em .1em .2em gray;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.popup-title{
+  text-align: center;
+}
+
+.popup-win span{
+  font-size: 30px;
+}
+
+.popup-lose{
+  display: block;
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  background-color: yellow;
+  box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, .1em .1em .2em gray;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}

@@ -3,7 +3,6 @@
 /* eslint-disable no-restricted-globals */
 import Menu from './block/menu';
 import Control from './utils/control';
-import Card from './block/card';
 import MenuCard from './block/menu_card';
 import Toggle from './block/toggle';
 import Field from './block/feild';
