@@ -28,7 +28,6 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
     field.clear();
     field.cards = [];
     field.modeStatus = mode.isChecked;
-    // field.node.style.paddingTop = (isPlayMode) ? '50px' : '0';
 
     switch (categoryHash) {
       case 'menu':
@@ -45,9 +44,8 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         for (let i = 0; i < ourCategoryData.length; i += 1) {
           field.addItem(ourCategoryData[i]);
         }
-
         if (mode.isChecked) {
-          field.play();
+          field.playMode();
         }
     }
 
