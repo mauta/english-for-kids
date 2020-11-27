@@ -32,8 +32,16 @@ export default class Feild extends Control {
     let item = cardsShuffled[i];
 
     const playGame = () => {
+      this.cards.forEach((element) => {
+        element.node.classList.add('flip-container-disabled');
+      });
       item = cardsShuffled[i];
       item.playSound();
+      item.audio.addEventListener('ended', () => {
+        this.cards.forEach((element) => {
+          element.node.classList.remove('flip-container-disabled');
+        });
+      });
       gamePanel.btn.node.addEventListener('click', () => {
         item.playSound();
       });

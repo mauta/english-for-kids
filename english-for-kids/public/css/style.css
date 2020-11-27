@@ -379,6 +379,10 @@ h1 {
   margin-bottom: 20px;
 }
 
+.flip-container-disabled{
+  pointer-events: none;
+}
+
 .flip-container.active .flipper {
   transform: rotateY(180deg);
 }
@@ -396,15 +400,9 @@ h1 {
   position: relative;
 }
 
+
 .front,
 .back {
-  backface-visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.front {
   border: 1px solid black;
   border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -416,21 +414,12 @@ h1 {
   border: 1px solid black;
   box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, .1em .1em .2em gray;
   z-index: 2;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.back {
-  border: 1px solid black;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  cursor: pointer;
-  background-color: white;
-  border: 1px solid black;
-  box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, .1em .1em .2em gray;
-  transform: rotateY(180deg);
-}
 
 .front:hover,
 .back:hover {
