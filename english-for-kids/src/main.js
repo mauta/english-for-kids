@@ -6,13 +6,37 @@ import Control from './utils/control';
 import MenuCard from './block/menu_card';
 import Toggle from './block/toggle';
 import Field from './block/feild';
+import ScoreFeild from './block/score_field'
+import {
+  get,
+  set,
+} from './utils/storage';
 
 fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   const header = new Control(document.body, 'header', 'header', '<h1>English for kids </h1>');
   const mode = new Toggle(header.node, 'mode');
   const main = new Control(document.body, 'main', 'main');
-  const field = new Field(main.node, 'field', mode.isChecked);
   const elem = new Menu(header.node, 'menu', 'menu__item menu__item--none', 'menu__item menu__item--selected');
+
+  const makeScore = (data) => {
+    const result = {};
+    data.forEach((el) => {
+      el.data.forEach((item) => {
+        result[item.enWord] = {
+          ruWord: item.ruWord,
+          category: el.category,
+          train: 0,
+          right: 0,
+          mistake: 0,
+        };
+      });
+    });
+    return result;
+  };
+
+  (get('score_mauta')) || set('score_mauta', makeScore(json));
+
+  const field = new Field(main.node, 'field', mode.isChecked);
 
   elem.addItem('menu');
   json.forEach((item) => elem.addItem(item.category, item.categoryImg));
@@ -37,6 +61,7 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         break;
       case 'score':
         field.node.innerText = 'статистика';
+        new ScoreFeild(field.node);
         break;
       default:
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;

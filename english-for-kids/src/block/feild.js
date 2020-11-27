@@ -4,15 +4,21 @@ import Audio from './audio';
 import GamePanel from './game_panel';
 import Win from './win';
 import Lose from './lose';
+import Score from './score';
+import {
+  set,
+  get,
+} from '../utils/storage';
 
 export default class Feild extends Control {
   constructor(parentNode, className = '', modeStatus) {
     super(parentNode, 'div', className, '');
     this.modeStatus = modeStatus;
-    this.arrAudio = ['assets/sound/bear.mp3', 'assets/sound/pig.mp3', 'assets/sound/dog.mp3', 'assets/sound/panda.mp3'];
     this.cards = [];
     this.wrongCounter = 0;
     this.attempCounter = 0;
+    this.score = new Score();
+    this.score.dashboard = get('score_mauta');
   }
 
   addItem(ourCategoryData) {
@@ -53,6 +59,7 @@ export default class Feild extends Control {
       element.node.addEventListener('click', () => {
         this.attempCounter += 1;
         if (item.enWord === element.enWord) {
+          this.score.load(item.enWord, 'right');
           element.node.style.opacity = '0.3';
           rightAudio.node.currentTime = 0;
           rightAudio.node.play();
@@ -69,6 +76,7 @@ export default class Feild extends Control {
             }
           }
         } else {
+          this.score.load(item.enWord, 'mistake');
           this.wrongCounter += 1;
           gamePanel.addAchieve(false);
           errAudio.node.play();

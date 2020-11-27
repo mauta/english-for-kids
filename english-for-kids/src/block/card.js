@@ -1,5 +1,9 @@
 /* eslint-disable no-unused-expressions */
 import Control from '../utils/control';
+import {
+  get,
+} from '../utils/storage';
+import Score from './score';
 
 export default class Card extends Control {
   constructor(parentNode, className = '', data, mode) {
@@ -24,6 +28,8 @@ export default class Card extends Control {
     this.audio = this.node.querySelector('audio');
     this.enWord = data.enWord;
     this.try = '';
+    this.score = new Score();
+    this.score.dashboard = get('score_mauta');
 
     if (this.isPlayMode) {
       this.node.classList.add('flipper--play');
@@ -34,6 +40,7 @@ export default class Card extends Control {
       this.bnt.addEventListener('click', (e) => {
         e.stopPropagation();
         this.node.classList.add('active');
+        this.score.load(this.enWord, 'train');
       });
 
       this.node.addEventListener('mouseleave', () => {
@@ -43,6 +50,7 @@ export default class Card extends Control {
       this.front.addEventListener('click', () => {
         this.audio.currentTime = 0;
         this.audio.play();
+        this.score.load(this.enWord, 'train');
       });
     }
   }
