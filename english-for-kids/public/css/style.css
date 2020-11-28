@@ -575,24 +575,35 @@ h1 {
 
 .dashboard__en-word {
   width: 100px;
+  text-align: center;
 }
 
 .dashboard__ru-word {
   width: 100px;
+  text-align: center;
 }
 
 .dashboard__train {
   width: 100px;
+  text-align: center;
 }
 
 .dashboard__right {
   width: 100px;
+  text-align: center;
 }
 
 .dashboard__mistake {
   width: 100px;
+  text-align: center;
 }
 
 .dashboard__procent {
   width: 100px;
+  text-align: center;
+}
+
+.dashboard__category {
+  width: 100px;
+  text-align: center;
 }
