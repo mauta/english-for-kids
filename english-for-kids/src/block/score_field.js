@@ -41,8 +41,8 @@ export default class ScoreFeild extends Control {
           train,
           right,
           mistake,
+          procent,
         } = item;
-        const procent = right * 100 / (right + mistake) || 0;
         const dashLine = `<div class="dashboard__category">${category}</div>
       <div class="dashboard__en-word">${enWord}</div>
       <div class="dashboard__ru-word">${ruWord}</div>
@@ -119,12 +119,12 @@ export default class ScoreFeild extends Control {
 
     this.scoreTrain.node.addEventListener('click', () => {
       parent.clear();
-      let hardWords = this.dashboardScore.sort(sortByKey('procent', true)).slice(0, 10);
-
-      console.log(hardWords)
-
-      parent.node.textContent = 'play'
-      // parent.playMode();
+      let wordsKeys = []
+      let hardWords = this.dashboardScore.sort(sortByKey('procent', false)).slice(0, 8);
+      hardWords.forEach((item) => {
+        wordsKeys.push(item.enWord);
+      });
+      parent.onClickHardWords(wordsKeys);
     });
   }
 }

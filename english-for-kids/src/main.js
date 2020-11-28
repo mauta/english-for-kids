@@ -30,9 +30,28 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
           train: 0,
           right: 0,
           mistake: 0,
+          procent: 0,
         };
         result.push(temp);
       });
+    });
+    return result;
+  };
+
+  const makeHard = (data, words) => {
+    const result = [];
+    let dataVal = [];
+    for (let i = 0; i < data.length; i += 1) {
+      dataVal.push(data[i].data);
+    }
+    dataVal = dataVal.flat();
+
+    words.forEach((el) => {
+      for (let i = 0; i < dataVal.length; i += 1) {
+        if (dataVal[i].enWord === el) {
+          result.push(dataVal[i]);
+        }
+      }
     });
     return result;
   };
@@ -64,6 +83,13 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         break;
       case 'score':
         new ScoreFeild(field);
+        field.onClickHardWords = (words) => {
+          const hardWordsData = makeHard(json, words);
+          console.log(hardWordsData);
+          for (let i = 0; i < hardWordsData.length; i += 1) {
+            field.addItem(hardWordsData[i]);
+          }
+        };
         break;
       default:
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;
