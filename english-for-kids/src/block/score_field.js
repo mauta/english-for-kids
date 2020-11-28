@@ -18,33 +18,28 @@ export default class ScoreFeild extends Control {
     this.dashboardRight = new Control(this.dashboardTitle.node, 'button', 'dashboard__right', 'Correct');
     this.dashboardMistake = new Control(this.dashboardTitle.node, 'button', 'dashboard__mistake', 'Incorrect');
     this.dashboardProcent = new Control(this.dashboardTitle.node, 'button', 'dashboard__procent', 'Progress');
-
     this.dashboardScore = get('score_mauta');
-    // eslint-disable-next-line no-restricted-syntax
-    for (const [key, value] of Object.entries(this.dashboardScore)) {
-      const procent = value.right * 100 / (value.right + value.mistake) || 0;
-      const dashLine = `<div class="dashboard__category">${value.category}</div>
-  <div class="dashboard__en-word">${key}</div>
-  <div class="dashboard__ru-word">${value.ruWord}</div>
-  <div class="dashboard__train">${value.train}</div>
-  <div class="dashboard__right">${value.right}</div>
-  <div class="dashboard__mistake">${value.mistake}</div>
-  <div class="dashboard__procent">${procent} %</div>`;
+
+    this.dashboardScore.forEach((item) => {
+      const {
+        enWord,
+        ruWord,
+        category,
+        train,
+        right,
+        mistake,
+      } = item;
+
+      const procent = right * 100 / (right + mistake) || 0;
+      const dashLine = `<div class="dashboard__category">${category}</div>
+    <div class="dashboard__en-word">${enWord}</div>
+    <div class="dashboard__ru-word">${ruWord}</div>
+    <div class="dashboard__train">${train}</div>
+    <div class="dashboard__right">${right}</div>
+    <div class="dashboard__mistake">${mistake}</div>
+    <div class="dashboard__procent">${procent} %</div>`;
 
       new Control(this.dashboard.node, 'div', 'dashboard__line', dashLine);
-
-
-
-
-
-    }
-
-
-
-
+    });
   }
-
-
-
-
 }

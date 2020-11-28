@@ -19,16 +19,19 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   const elem = new Menu(header.node, 'menu', 'menu__item menu__item--none', 'menu__item menu__item--selected');
 
   const makeScore = (data) => {
-    const result = {};
+    const result = [];
     data.forEach((el) => {
+      let temp = {};
       el.data.forEach((item) => {
-        result[item.enWord] = {
+        temp = {
+          enWord: item.enWord,
           ruWord: item.ruWord,
           category: el.category,
           train: 0,
           right: 0,
           mistake: 0,
         };
+        result.push(temp);
       });
     });
     return result;

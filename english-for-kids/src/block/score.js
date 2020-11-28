@@ -5,12 +5,16 @@ import {
 
 export default class Score {
   constructor() {
-    this.dashboard = {};
+    this.dashboard = [];
   }
 
   load(word, localKey) {
     this.dashboard = get('score_mauta');
-    this.dashboard[word][localKey] += 1;
+    this.dashboard.forEach((el) => {
+      if (el.enWord === word) {
+        el[localKey] += 1;
+      }
+    });
     set('score_mauta', this.dashboard);
   }
 }
