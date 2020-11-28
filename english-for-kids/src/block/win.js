@@ -1,15 +1,15 @@
 import Control from '../utils/control';
-import Audio from './audio';
 
 export default class Win extends Control {
-  constructor(parentNode, data) {
+  constructor(parentNode) {
     super(parentNode, 'div', 'popup-win', '<img src = "assets/img/win.png" >');
-    this.audio = new Audio(this.node, 'assets/sound/win.mp3');
+    this.audio = new Audio();
+    this.audio.src = 'assets/sound/win.mp3';
   }
 
   winStart() {
-    this.audio.node.currentTime = 0;
-    this.audio.node.play();
+    this.audio.currentTime = 0;
+    this.audio.play();
     setTimeout(() => {
       location.hash = 'menu';
     }, 5000);

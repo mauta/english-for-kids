@@ -11,7 +11,6 @@ export default class Card extends Control {
     <div class="front">
       <img class="card-img" src="${data.img}" alt="${data.enWord}">
       <span class="enWord">${data.enWord}</span>
-      <audio src="${data.sound}"></audio>
       <button class="btn-changeling" type="button">Перевернуть</button>
     </div>
     <div class="back">
@@ -25,7 +24,8 @@ export default class Card extends Control {
     this.isPlayMode = mode;
     this.bnt = this.node.querySelector('.btn-changeling');
     this.front = this.node.querySelector('.front');
-    this.audio = this.node.querySelector('audio');
+    this.audio = new Audio();
+    this.audio.src = data.sound;
     this.enWord = data.enWord;
     this.try = '';
     this.score = new Score();

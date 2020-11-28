@@ -1,6 +1,5 @@
 import Control from '../utils/control';
 import Card from './card';
-import Audio from './audio';
 import GamePanel from './game_panel';
 import Win from './win';
 import Lose from './lose';
@@ -30,8 +29,10 @@ export default class Feild extends Control {
     this.wrongCounter = 0;
     this.attempCounter = 0;
     const gamePanel = new GamePanel(this.node);
-    const errAudio = new Audio(this.node, 'assets/sound/error.mp3');
-    const rightAudio = new Audio(this.node, 'assets/sound/right.mp3');
+    const errAudio = new Audio();
+    errAudio.src = 'assets/sound/error.mp3';
+    const rightAudio = new Audio();
+    rightAudio.src = 'assets/sound/right.mp3';
     const cardsShuffled = this.cards.sort(() => Math.random() - 0.5);
 
     let i = 0;
@@ -60,9 +61,9 @@ export default class Feild extends Control {
         this.attempCounter += 1;
         if (item.enWord === element.enWord) {
           this.score.load(item.enWord, 'right');
-          element.node.style.opacity = '0.3';
-          rightAudio.node.currentTime = 0;
-          rightAudio.node.play();
+          element.node.style.opacity = '0.8';
+          rightAudio.currentTime = 0;
+          rightAudio.play();
           gamePanel.addAchieve(true);
           element.node.style.pointerEvents = 'none';
           i += 1;
@@ -79,7 +80,7 @@ export default class Feild extends Control {
           this.score.load(item.enWord, 'mistake');
           this.wrongCounter += 1;
           gamePanel.addAchieve(false);
-          errAudio.node.play();
+          errAudio.play();
         }
       });
     });
