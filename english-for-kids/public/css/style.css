@@ -555,6 +555,15 @@ h1 {
   -o-border-radius: 10px;
 }
 
+.score__btns{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard{
+  width: 100%;
+}
 
 .dashboard__title,
 .dashboard__line {

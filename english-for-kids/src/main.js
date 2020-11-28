@@ -60,7 +60,6 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         }
         break;
       case 'score':
-        field.node.innerText = 'статистика';
         new ScoreFeild(field.node);
         break;
       default:
