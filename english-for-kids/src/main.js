@@ -11,6 +11,7 @@ import {
   get,
   set,
 } from './utils/storage';
+import sortByKey from './utils/sort';
 
 fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   const header = new Control(document.body, 'header', 'header', '<h1>English for kids </h1>');
@@ -83,14 +84,22 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         }
         break;
       case 'hard-words':
-        if (mode.isChecked) {
-          mode.node.onclick();
-        }
-        mode.node.querySelector('.checkbox').checked = false;
         field.modeStatus = mode.isChecked;
-        field.hardWords = makeHard(json, field.hardKeys);
+        const dashboardScore = get('score_mauta');
+        let wordsKeys = [];
+        let hardWords = dashboardScore.sort(sortByKey('procent', false)).slice(0, 8);
+
+        console.log(hardWords);
+        hardWords.forEach((item) => {
+          wordsKeys.push(item.enWord);
+        });
+        field.hardWords = makeHard(json, wordsKeys);
+        console.log(field.hardWords);
         for (let i = 0; i < field.hardWords.length; i += 1) {
           field.addItem(field.hardWords[i]);
+        }
+        if (mode.isChecked) {
+          field.playMode();
         }
         break;
       case 'score':
