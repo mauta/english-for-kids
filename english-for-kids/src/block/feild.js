@@ -52,12 +52,12 @@ export default class Feild extends Control {
           element.node.classList.remove('flip-container-disabled');
         });
       });
-      gamePanel.btn.node.addEventListener('click', () => {
-        item.playSound();
-      });
     };
 
-    setTimeout(playGame, 1000);
+    gamePanel.btn.node.addEventListener('click', () => {
+      playGame();
+      gamePanel.btn.node.textContent = 'repiat';
+    });
 
     this.cards.forEach((element) => {
       element.node.addEventListener('click', () => {
