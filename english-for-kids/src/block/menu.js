@@ -40,6 +40,7 @@ export default class Menu extends Control {
       this.select(this.arr.indexOf(elem));
       this.burger.node.classList.remove('is-active');
       this.node.classList.remove('menu-active');
+      this.transLayer.node.style.display = 'none';
     });
     this.content.push(content);
     this.arr.push(elem);

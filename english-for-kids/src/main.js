@@ -63,6 +63,7 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   elem.addItem('menu');
   json.forEach((item) => elem.addItem(item.category, item.categoryImg));
   elem.addItem('score');
+  elem.addItem('hard-words');
 
   elem.onChange = (ind) => {
     location.hash = elem.content[ind];
@@ -81,15 +82,19 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
           new MenuCard(field.node, 'card', 'card2', data);
         }
         break;
+      case 'hard-words':
+        if (mode.isChecked) {
+          mode.node.onclick();
+        }
+        mode.node.querySelector('.checkbox').checked = false;
+        field.modeStatus = mode.isChecked;
+        field.hardWords = makeHard(json, field.hardKeys);
+        for (let i = 0; i < field.hardWords.length; i += 1) {
+          field.addItem(field.hardWords[i]);
+        }
+        break;
       case 'score':
         new ScoreFeild(field);
-        field.onClickHardWords = (words) => {
-          const hardWordsData = makeHard(json, words);
-          console.log(hardWordsData);
-          for (let i = 0; i < hardWordsData.length; i += 1) {
-            field.addItem(hardWordsData[i]);
-          }
-        };
         break;
       default:
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;

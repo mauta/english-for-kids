@@ -118,13 +118,13 @@ export default class ScoreFeild extends Control {
     });
 
     this.scoreTrain.node.addEventListener('click', () => {
-      parent.clear();
-      let wordsKeys = []
+      let wordsKeys = [];
       let hardWords = this.dashboardScore.sort(sortByKey('procent', false)).slice(0, 8);
       hardWords.forEach((item) => {
         wordsKeys.push(item.enWord);
       });
-      parent.onClickHardWords(wordsKeys);
+      parent.hardKeys = wordsKeys;
+      location.hash = 'hard-words';
     });
   }
 }

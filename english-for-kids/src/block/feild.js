@@ -19,6 +19,8 @@ export default class Feild extends Control {
     this.score = new Score();
     this.score.dashboard = get('score_mauta');
     this.onClickHardWords = () => {};
+    this.hardWords = [];
+    this.hardKeys = [];
   }
 
   addItem(ourCategoryData) {
