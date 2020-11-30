@@ -7,25 +7,21 @@ import Score from './score';
 
 export default class Card extends Control {
   constructor(parentNode, className = '', data, mode) {
-    const inner = `<div class="flipper">
-    <div class="front">
-      <img class="card-img" src="${data.img}" alt="${data.enWord}">
-      <span class="enWord">${data.enWord}</span>
-      <button class="btn-changeling" type="button">Перевернуть</button>
-    </div>
-    <div class="back">
-      <img class="card-img" src="${data.img}" alt="${data.enWord}">
-      <span class="ruWord">${data.ruWord}</span>
-    </div>
-    </div>`;
-    super(parentNode, 'div', className, inner);
+    super(parentNode, 'div', className);
+    this.flipper = new Control(this.node, 'div', 'flipper');
+    const frontInner = `<img class="card-img" src="assets/img/${data.enWord}.png" alt="${data.enWord}">
+    <span class="enWord">${data.enWord}</span>`;
+    this.front = new Control(this.flipper.node, 'div', 'front', frontInner);
+    const btnInner = '<img src="./assets/img/reload.svg" alt="turn over" width="29" hight="29">';
+    this.bntChangeling = new Control(this.front.node, 'button', 'btn-changeling', btnInner);
+    const backInner = ` <img class="card-img" src="assets/img/${data.enWord}.png" alt="${data.enWord}">
+    <span class="ruWord">${data.ruWord}</span>`;
+    this.back = new Control(this.flipper.node, 'div', 'back', backInner);
     this.isChecked = false;
     this.className = className;
     this.isPlayMode = mode;
-    this.bnt = this.node.querySelector('.btn-changeling');
-    this.front = this.node.querySelector('.front');
     this.audio = new Audio();
-    this.audio.src = data.sound;
+    this.audio.src = `assets/sound/${data.enWord}.mp3`;
     this.enWord = data.enWord;
     this.try = '';
     this.score = new Score();
@@ -37,7 +33,7 @@ export default class Card extends Control {
         this.try = this.enWord;
       });
     } else {
-      this.bnt.addEventListener('click', (e) => {
+      this.bntChangeling.node.addEventListener('click', (e) => {
         e.stopPropagation();
         this.node.classList.add('active');
         this.score.load(this.enWord, 'train');
@@ -47,7 +43,7 @@ export default class Card extends Control {
         this.node.classList.remove('active');
       });
 
-      this.front.addEventListener('click', () => {
+      this.front.node.addEventListener('click', () => {
         this.audio.currentTime = 0;
         this.audio.play();
         this.score.load(this.enWord, 'train');
