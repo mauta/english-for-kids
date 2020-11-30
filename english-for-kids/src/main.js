@@ -14,6 +14,7 @@ import {
 import sortByKey from './utils/sort';
 
 fetch('../assets/data.json').then((res) => res.json()).then((json) => {
+  const COUNT_CARDS = 8;
   const header = new Control(document.body, 'header', 'header', '<h1>English for kids </h1>');
   const mode = new Toggle(header.node, 'mode');
   const main = new Control(document.body, 'main', 'main');
@@ -87,14 +88,11 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         field.modeStatus = mode.isChecked;
         const dashboardScore = get('score_mauta');
         let wordsKeys = [];
-        let hardWords = dashboardScore.sort(sortByKey('procent', false)).slice(0, 8);
-
-        console.log(hardWords);
+        let hardWords = dashboardScore.filter((item) => item.procent > 0).sort(sortByKey('procent', false)).slice(0, COUNT_CARDS);
         hardWords.forEach((item) => {
           wordsKeys.push(item.enWord);
         });
         field.hardWords = makeHard(json, wordsKeys);
-        console.log(field.hardWords);
         for (let i = 0; i < field.hardWords.length; i += 1) {
           field.addItem(field.hardWords[i]);
         }
@@ -107,8 +105,9 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         break;
       default:
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;
-        for (let i = 0; i < ourCategoryData.length; i += 1) {
-          field.addItem(ourCategoryData[i]);
+        const cardsForTrain = ourCategoryData.sort(() => Math.random() - 0.5).slice(0, COUNT_CARDS);
+        for (let i = 0; i < cardsForTrain.length; i += 1) {
+          field.addItem(cardsForTrain[i]);
         }
         if (mode.isChecked) {
           field.playMode();

@@ -1,71 +1,264 @@
 [{
-    "category": "food",
-    "categoryImg": "img",
+    "category": "fruit",
+    "categoryImg": "assets/img/fruit.png",
     "data": [{
         "ruWord": "банан",
         "enWord": "banana",
-        "img": "assets/img/banana.jpg",
-        "sound": ""
+        "img": "assets/img/banana.png",
+        "sound": "assets/sound/banana.mp3"
       },
       {
         "ruWord": "яблоко",
         "enWord": "apple",
-        "img": "assets/img/apple.jpg",
-        "sound": ""
+        "img": "assets/img/apple.png",
+        "sound": "assets/sound/apple.mp3"
       },
       {
         "ruWord": "апельсин",
         "enWord": "orange",
-        "img": "assets/img/orange.jpg",
-        "sound": ""
+        "img": "assets/img/orange.png",
+        "sound": "assets/sound/orange.mp3"
       },
       {
         "ruWord": "киви",
         "enWord": "kiwi",
-        "img": "assets/img/kiwi.jpg",
-        "sound": ""
+        "img": "assets/img/kiwi.png",
+        "sound": "assets/sound/kiwi.mp3"
       },
       {
         "ruWord": "арбуз",
         "enWord": "watermelon",
-        "img": "assets/img/watermelon.jpg",
-        "sound": ""
+        "img": "assets/img/watermelon.png",
+        "sound": "assets/sound/watermelon.mp3"
       },
       {
         "ruWord": "виноград",
         "enWord": "grape",
-        "img": "assets/img/grape.jpg",
-        "sound": ""
+        "img": "assets/img/grape.png",
+        "sound": "assets/sound/grape.mp3"
       },
       {
         "ruWord": "лимон",
         "enWord": "lemon",
-        "img": "assets/img/lemon.jpg",
-        "sound": ""
+        "img": "assets/img/lemon.png",
+        "sound": "assets/sound/lemon.mp3"
       },
       {
         "ruWord": "груша",
         "enWord": "pear",
-        "img": "assets/img/pear.jpg",
-        "sound": ""
+        "img": "assets/img/pear.png",
+        "sound": "assets/sound/pear.mp3"
+      },
+      {
+        "ruWord": "абрикос",
+        "enWord": "apricot",
+        "img": "assets/img/apricot.png",
+        "sound": "assets/sound/apricot.mp3"
+      },
+      {
+        "ruWord": "ежевика",
+        "enWord": "blackberry",
+        "img": "assets/img/blackberry.png",
+        "sound": "assets/sound/blackberry.mp3"
+      },
+      {
+        "ruWord": "черника",
+        "enWord": "blueberry",
+        "img": "assets/img/blueberry.png",
+        "sound": "assets/sound/blueberry.mp3"
+      },
+      {
+        "ruWord": "вишня",
+        "enWord": "cherry",
+        "img": "assets/img/cherry.png",
+        "sound": "assets/sound/cherry.mp3"
+      },
+      {
+        "ruWord": "клюква",
+        "enWord": "cranberry",
+        "img": "assets/img/cranberry.png",
+        "sound": "assets/sound/cranberry.mp3"
+      },
+      {
+        "ruWord": "смородина",
+        "enWord": "currant",
+        "img": "assets/img/currant.png",
+        "sound": "assets/sound/currant.mp3"
+      },
+      {
+        "ruWord": "лайм",
+        "enWord": "lime",
+        "img": "assets/img/lime.png",
+        "sound": "assets/sound/lime.mp3"
+      },
+      {
+        "ruWord": "дыня",
+        "enWord": "melon",
+        "img": "assets/img/melon.png",
+        "sound": "assets/sound/melon.mp3"
+      },
+      {
+        "ruWord": "гранат",
+        "enWord": "pomegranate",
+        "img": "assets/img/pomegranate.png",
+        "sound": "assets/sound/pomegranate.mp3"
+      },
+      {
+        "ruWord": "малина",
+        "enWord": "raspberry",
+        "img": "assets/img/raspberry.png",
+        "sound": "assets/sound/raspberry.mp3"
+      },
+      {
+        "ruWord": "малина",
+        "enWord": "клубника",
+        "img": "assets/img/strawberry.png",
+        "sound": "assets/sound/strawberry.mp3"
       }
     ]
   }, {
-    "category": "animals",
-    "categoryImg": "assets/img/animal.png",
+    "category": "vegetables",
+    "categoryImg": "assets/img/vegetables.png",
     "data": [{
-        "ruWord": "медведь",
-        "enWord": "bear",
-        "img": "assets/img/bear.png",
-        "sound": "assets/sound/bear.mp3"
+        "ruWord": "авокадо",
+        "enWord": "avocado",
+        "img": "assets/img/avocado.png",
+        "sound": "assets/sound/avocado.mp3"
       },
       {
+        "ruWord": "свекла",
+        "enWord": "beetroot",
+        "img": "assets/img/beetroot.png",
+        "sound": "assets/sound/beetroot.mp3"
+      },
+      {
+        "ruWord": "брокколи",
+        "enWord": "broccoli",
+        "img": "assets/img/broccoli.png",
+        "sound": "assets/sound/broccoli.mp3"
+      },
+      {
+        "ruWord": "капуста",
+        "enWord": "cabbage",
+        "img": "assets/img/cabbage.png",
+        "sound": "assets/sound/cabbage.mp3"
+      },
+      {
+        "ruWord": "морковь",
+        "enWord": "carrot",
+        "img": "assets/img/carrot.png",
+        "sound": "assets/sound/carrot.mp3"
+      },
+      {
+        "ruWord": "цветная капуста",
+        "enWord": "cauliflower",
+        "img": "assets/img/cauliflower.png",
+        "sound": "assets/sound/cauliflower.mp3"
+      },
+      {
+        "ruWord": "кукуруза",
+        "enWord": "corn",
+        "img": "assets/img/corn.png",
+        "sound": "assets/sound/corn.mp3"
+      },
+      {
+        "ruWord": "огурец",
+        "enWord": "cucumber",
+        "img": "assets/img/cucumber.png",
+        "sound": "assets/sound/cucumber.mp3"
+      },
+      {
+        "ruWord": "баклажан",
+        "enWord": "eggplant",
+        "img": "assets/img/eggplant.png",
+        "sound": "assets/sound/eggplant.mp3"
+      },
+      {
+        "ruWord": "чеснок",
+        "enWord": "garlic",
+        "img": "assets/img/garlic.png",
+        "sound": "assets/sound/garlicr.mp3"
+      },
+      {
+        "ruWord": "имбирь",
+        "enWord": "ginger",
+        "img": "assets/img/ginger.png",
+        "sound": "assets/sound/ginger.mp3"
+      },
+      {
+        "ruWord": "лук",
+        "enWord": "onion",
+        "img": "assets/img/onion.png",
+        "sound": "assets/sound/onion.mp3"
+      },
+      {
+        "ruWord": "картофель",
+        "enWord": "potato",
+        "img": "assets/img/potato.png",
+        "sound": "assets/sound/potato.mp3"
+      }
+    ]
+  }, {
+    "category": "pets",
+    "categoryImg": "assets/img/pets.png",
+    "data": [{
         "ruWord": "собака",
         "enWord": "dog",
         "img": "assets/img/dog.png",
         "sound": "assets/sound/dog.mp3"
       },
       {
+        "ruWord": "кролик",
+        "enWord": "rabbit",
+        "img": "assets/img/rabbit.png",
+        "sound": "assets/sound/rabbit.mp3"
+      },
+      {
+        "ruWord": "свинья",
+        "enWord": "pig",
+        "img": "assets/img/pig.png",
+        "sound": "assets/sound/pig.mp3"
+      },
+      {
+        "ruWord": "коза",
+        "enWord": "goat",
+        "img": "assets/img/goat.png",
+        "sound": "assets/sound/goat.mp3"
+      },
+      {
+        "ruWord": "кот",
+        "enWord": "cat",
+        "img": "assets/img/cat.png",
+        "sound": "assets/sound/cat.mp3"
+      },
+      {
+        "ruWord": "корова",
+        "enWord": "cow",
+        "img": "assets/img/cow.png",
+        "sound": "assets/sound/cow.mp3"
+      },
+      {
+        "ruWord": "лошадь",
+        "enWord": "horse",
+        "img": "assets/img/horse.png",
+        "sound": "assets/sound/horse.mp3"
+      },
+      {
+        "ruWord": "овца",
+        "enWord": "sheep",
+        "img": "assets/img/sheep.png",
+        "sound": "assets/sound/sheep.mp3"
+      }
+    ]
+  },{
+    "category": "animals",
+    "categoryImg": "assets/img/animals.png",
+    "data": [{
+        "ruWord": "медведь",
+        "enWord": "bear",
+        "img": "assets/img/bear.png",
+        "sound": "assets/sound/bear.mp3"
+      }, {
         "ruWord": "слон",
         "enWord": "elephant",
         "img": "assets/img/elephant.png",
@@ -78,133 +271,151 @@
         "sound": "assets/sound/fox.mp3"
       },
       {
-        "ruWord": "коза",
-        "enWord": "goat",
-        "img": "assets/img/goat.png",
-        "sound": "assets/sound/goat.mp3"
-      },
-      {
         "ruWord": "панда",
         "enWord": "panda",
         "img": "assets/img/panda.png",
         "sound": "assets/sound/panda.mp3"
       },
       {
-        "ruWord": "свинья",
-        "enWord": "pig",
-        "img": "assets/img/pig.png",
-        "sound": "assets/sound/pig.mp3"
+        "ruWord": "леопард",
+        "enWord": "leopard",
+        "img": "assets/img/leopard.png",
+        "sound": "assets/sound/leopard.mp3"
       },
       {
-        "ruWord": "кролик",
-        "enWord": "rabbit",
-        "img": "assets/img/rabbit.png",
-        "sound": "assets/sound/rabbit.mp3"
-      }
-    ]
-  }, {
-    "category": "colors",
-    "categoryImg": "img",
-    "data": [{
-        "ruWord": "банан",
-        "enWord": "banana",
-        "img": "img",
-        "sound": ""
+        "ruWord": "лев",
+        "enWord": "lion",
+        "img": "assets/img/lion.png",
+        "sound": "assets/sound/lion.mp3"
       },
       {
-        "ruWord": "банан",
-        "enWord": "orange",
-        "img": "img",
-        "sound": ""
-      }
-    ]
-  },
-  {
-    "category": "body",
-    "categoryImg": "img",
-    "data": [{
-        "ruWord": "банан",
-        "enWord": "banana",
-        "img": "img",
-        "sound": ""
+        "ruWord": "тигр",
+        "enWord": "tiger",
+        "img": "assets/img/tiger.png",
+        "sound": "assets/sound/tiger.mp3"
       },
       {
-        "ruWord": "банан",
-        "enWord": "orange",
-        "img": "img",
-        "sound": ""
+        "ruWord": "черепаха",
+        "enWord": "turtle",
+        "img": "assets/img/turtle.png",
+        "sound": "assets/sound/turtle.mp3"
+      },
+      {
+        "ruWord": "зебра",
+        "enWord": "zebra",
+        "img": "assets/img/zebra.png",
+        "sound": "assets/sound/zebra.mp3"
       }
     ]
   },
   {
-    "category": "clothes",
-    "categoryImg": "img",
+    "category": "birds",
+    "categoryImg": "assets/img/birds.png",
     "data": [{
-        "ruWord": "банан",
-        "enWord": "banana",
-        "img": "img",
-        "sound": ""
+        "ruWord": "голубь",
+        "enWord": "dove",
+        "img": "assets/img/dove.png",
+        "sound": "assets/sound/dove.mp3"
       },
       {
-        "ruWord": "банан",
-        "enWord": "orange",
-        "img": "img",
-        "sound": ""
+        "ruWord": "утка",
+        "enWord": "duck",
+        "img": "assets/img/duck.png",
+        "sound": "assets/sound/duck.mp3"
+      },
+      {
+        "ruWord": "страус",
+        "enWord": "ostrich",
+        "img": "assets/img/ostrich.png",
+        "sound": "assets/sound/ostrich.mp3"
+      },
+      {
+        "ruWord": "сова",
+        "enWord": "owl",
+        "img": "assets/img/owl.png",
+        "sound": "assets/sound/owl.mp3"
+      },
+      {
+        "ruWord": "попугай",
+        "enWord": "parrot",
+        "img": "assets/img/parrot.png",
+        "sound": "assets/sound/parrot.mp3"
+      },
+      {
+        "ruWord": "павлин",
+        "enWord": "peacock",
+        "img": "assets/img/peacock.png",
+        "sound": "assets/sound/peacock.mp3"
+      },
+      {
+        "ruWord": "пингвин",
+        "enWord": "penguin",
+        "img": "assets/img/penguin.png",
+        "sound": "assets/sound/penguin.mp3"
+      },
+      {
+        "ruWord": "воробей",
+        "enWord": "sparrow",
+        "img": "assets/img/sparrow.png",
+        "sound": "assets/sound/sparrow.mp3"
       }
     ]
   },
   {
-    "category": "emotions",
-    "categoryImg": "img",
+    "category": "tools",
+    "categoryImg": "assets/img/tools.png",
     "data": [{
-        "ruWord": "банан",
-        "enWord": "banana",
-        "img": "img",
-        "sound": ""
-      },
-      {
-        "ruWord": "банан",
-        "enWord": "orange",
-        "img": "img",
-        "sound": ""
-      }
-    ]
+      "ruWord": "бензопила",
+      "enWord": "chainsaw",
+      "img": "assets/img/chainsaw.png",
+      "sound": "assets/sound/chainsaw.mp3"
+    }, {
+      "ruWord": "дрель",
+      "enWord": "drill",
+      "img": "assets/img/drill.png",
+      "sound": "assets/sound/drill.mp3"
+    }, {
+      "ruWord": "молоток",
+      "enWord": "hammer",
+      "img": "assets/img/hammer.png",
+      "sound": "assets/sound/hammer.mp3"
+    }, {
+      "ruWord": "пила",
+      "enWord": "saw",
+      "img": "assets/img/saw.png",
+      "sound": "assets/sound/saw.mp3"
+    }, {
+      "ruWord": "топор",
+      "enWord": "hatchet",
+      "img": "assets/img/hatchet.png",
+      "sound": "assets/sound/hatchet.mp3"
+    }, {
+      "ruWord": "плоскогубцы",
+      "enWord": "pliers",
+      "img": "assets/img/pliers.png",
+      "sound": "assets/sound/pliers.mp3"
+    }, {
+      "ruWord": "отвертка",
+      "enWord": "screwdriver",
+      "img": "assets/img/screwdriver.png",
+      "sound": "assets/sound/screwdriver.mp3"
+    }, {
+      "ruWord": "гаечный ключ",
+      "enWord": "wrench",
+      "img": "assets/img/wrench.png",
+      "sound": "assets/sound/wrench.mp3"
+    }]
   }, {
     "category": "nature",
     "categoryImg": "img",
-    "data": [{
-        "ruWord": "банан",
-        "enWord": "banana",
-        "img": "img",
-        "sound": ""
-      },
-      {
-        "ruWord": "банан",
-        "enWord": "orange",
-        "img": "img",
-        "sound": ""
-      }
+    "data": [
+
     ]
   }, {
     "category": "space",
     "categoryImg": "img",
-    "data": [{
-        "ruWord": "банан",
-        "enWord": "banana",
-        "img": "img",
-        "sound": ""
-      },
-      {
-        "ruWord": "банан",
-        "enWord": "orange",
-        "img": "img",
-        "sound": ""
-      }
+    "data": [
+
     ]
   }
-
-
-
-
-
 ]

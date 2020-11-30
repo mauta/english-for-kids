@@ -13,7 +13,7 @@ export default class Score {
     this.dashboard.forEach((el) => {
       if (el.enWord === word) {
         el[localKey] += 1;
-        el.procent = +(el.right * 100 / (el.right + el.mistake)).toFixed(1) || 0;
+        el.procent = +((el.right * 100) / (el.right + el.mistake)).toFixed(1) || 0;
       }
     });
     set('score_mauta', this.dashboard);

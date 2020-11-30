@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import Control from '../utils/control';
 import Card from './card';
 import GamePanel from './game_panel';
@@ -5,7 +6,6 @@ import Win from './win';
 import Lose from './lose';
 import Score from './score';
 import {
-  set,
   get,
 } from '../utils/storage';
 
@@ -73,11 +73,7 @@ export default class Feild extends Control {
           if (i < 8) {
             setTimeout(playGame, 1500);
           } else {
-            if (!this.wrongCounter) {
-              new Win(this.node).winStart();
-            } else {
-              new Lose(this.node, [this.wrongCounter, this.attempCounter]).loseStart();
-            }
+            (!this.wrongCounter) ? new Win(this.node).winStart(): new Lose(this.node, [this.wrongCounter, this.attempCounter]).loseStart();
           }
         } else {
           this.score.load(item.enWord, 'mistake');
