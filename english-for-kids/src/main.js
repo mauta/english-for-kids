@@ -6,7 +6,7 @@ import Control from './utils/control';
 import MenuCard from './block/menu_card';
 import Toggle from './block/toggle';
 import Field from './block/feild';
-import ScoreFeild from './block/score_field'
+import ScoreFeild from './block/score_field';
 import {
   get,
   set,
@@ -87,8 +87,8 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
       case 'hard-words':
         field.modeStatus = mode.isChecked;
         const dashboardScore = get('score_mauta');
-        let wordsKeys = [];
-        let hardWords = dashboardScore.filter((item) => item.procent > 0).sort(sortByKey('procent', false)).slice(0, COUNT_CARDS);
+        const wordsKeys = [];
+        const hardWords = dashboardScore.filter((item) => item.procent > 0 && item.procent < 100).sort(sortByKey('procent', false)).slice(0, COUNT_CARDS);
         hardWords.forEach((item) => {
           wordsKeys.push(item.enWord);
         });

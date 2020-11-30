@@ -73,7 +73,7 @@ export default class Feild extends Control {
           if (i < 8) {
             setTimeout(playGame, 1500);
           } else {
-            (!this.wrongCounter) ? new Win(this.node).winStart(): new Lose(this.node, [this.wrongCounter, this.attempCounter]).loseStart();
+            (!this.wrongCounter) ? new Win(this.node).winStart() : new Lose(this.node, [this.wrongCounter, this.attempCounter]).loseStart();
           }
         } else {
           this.score.load(item.enWord, 'mistake');
