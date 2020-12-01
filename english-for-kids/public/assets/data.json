@@ -276,15 +276,63 @@
       "enWord": "wrench"
     }]
   }, {
-    "category": "nature",
-    "categoryImg": "img",
-    "data": [
+    "category": "furniture",
+    "categoryImg": "assets/img/furniture.png",
+    "data": [{
+      "ruWord": "кресло",
+      "enWord": "armchair"
+    }, {
+      "ruWord": "кровать",
+      "enWord": "bed"
+    }, {
+      "ruWord": "скамейка",
+      "enWord": "bench"
+    }, {
+      "ruWord": "стул",
+      "enWord": "chair"
+    }, {
+      "ruWord": "шкаф",
+      "enWord": "cupboard"
+    }, {
+      "ruWord": "диван",
+      "enWord": "sofa"
+    }, {
+      "ruWord": "стол",
+      "enWord": "table"
+    }, {
+      "ruWord": "табурет",
+      "enWord": "stool"
+    }
 
     ]
   }, {
-    "category": "space",
-    "categoryImg": "img",
-    "data": [
+    "category": "food",
+    "categoryImg": "assets/img/food.png",
+    "data": [{
+      "ruWord": "бургер",
+      "enWord": "burger"
+    }, {
+      "ruWord": "торт",
+      "enWord": "cake"
+    }, {
+      "ruWord": "кола",
+      "enWord": "cola"
+    }, {
+      "ruWord": "салат",
+      "enWord": "salad"
+    }, {
+      "ruWord": "картошка фри",
+      "enWord": "fries"
+    }, {
+      "ruWord": "мороженое",
+      "enWord": "ice-cream"
+    }, {
+      "ruWord": "пицца",
+      "enWord": "pizza"
+    }, {
+      "ruWord": "макароны",
+      "enWord": "spaghetti"
+    }
 
     ]
   }
