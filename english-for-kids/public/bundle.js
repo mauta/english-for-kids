@@ -131,25 +131,21 @@ __webpack_require__.r(__webpack_exports__);
 
 class Card extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
   constructor(parentNode, className = '', data, mode) {
-    const inner = `<div class="flipper">
-    <div class="front">
-      <img class="card-img" src="${data.img}" alt="${data.enWord}">
-      <span class="enWord">${data.enWord}</span>
-      <button class="btn-changeling" type="button">Перевернуть</button>
-    </div>
-    <div class="back">
-      <img class="card-img" src="${data.img}" alt="${data.enWord}">
-      <span class="ruWord">${data.ruWord}</span>
-    </div>
-    </div>`;
-    super(parentNode, 'div', className, inner);
+    super(parentNode, 'div', className);
+    this.flipper = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.node, 'div', 'flipper');
+    const frontInner = `<img class="card-img" src="assets/img/${data.enWord}.png" alt="${data.enWord}">
+    <span class="enWord">${data.enWord}</span>`;
+    this.front = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.flipper.node, 'div', 'front', frontInner);
+    const btnInner = '<img src="./assets/img/reload.svg" alt="turn over" width="29" hight="29">';
+    this.bntChangeling = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.front.node, 'button', 'btn-changeling', btnInner);
+    const backInner = ` <img class="card-img" src="assets/img/${data.enWord}.png" alt="${data.enWord}">
+    <span class="ruWord">${data.ruWord}</span>`;
+    this.back = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.flipper.node, 'div', 'back', backInner);
     this.isChecked = false;
     this.className = className;
     this.isPlayMode = mode;
-    this.bnt = this.node.querySelector('.btn-changeling');
-    this.front = this.node.querySelector('.front');
     this.audio = new Audio();
-    this.audio.src = data.sound;
+    this.audio.src = `assets/sound/${data.enWord}.mp3`;
     this.enWord = data.enWord;
     this.try = '';
     this.score = new _score__WEBPACK_IMPORTED_MODULE_2__["default"]();
@@ -161,7 +157,7 @@ class Card extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
         this.try = this.enWord;
       });
     } else {
-      this.bnt.addEventListener('click', (e) => {
+      this.bntChangeling.node.addEventListener('click', (e) => {
         e.stopPropagation();
         this.node.classList.add('active');
         this.score.load(this.enWord, 'train');
@@ -171,7 +167,7 @@ class Card extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
         this.node.classList.remove('active');
       });
 
-      this.front.addEventListener('click', () => {
+      this.front.node.addEventListener('click', () => {
         this.audio.currentTime = 0;
         this.audio.play();
         this.score.load(this.enWord, 'train');
@@ -243,6 +239,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lose__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lose */ "./src/block/lose.js");
 /* harmony import */ var _score__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./score */ "./src/block/score.js");
 /* harmony import */ var _utils_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/storage */ "./src/utils/storage.js");
+/* eslint-disable max-len */
 
 
 
@@ -294,12 +291,12 @@ class Feild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
           element.node.classList.remove('flip-container-disabled');
         });
       });
-      gamePanel.btn.node.addEventListener('click', () => {
-        item.playSound();
-      });
     };
 
-    setTimeout(playGame, 1000);
+    gamePanel.btn.node.addEventListener('click', () => {
+      playGame();
+      gamePanel.btn.node.style.backgroundImage = "url('../assets/img/repiat.svg')";
+    });
 
     this.cards.forEach((element) => {
       element.node.addEventListener('click', () => {
@@ -312,14 +309,10 @@ class Feild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
           gamePanel.addAchieve(true);
           element.node.style.pointerEvents = 'none';
           i += 1;
-          if (i < 8) {
+          if (i < this.cards.length) {
             setTimeout(playGame, 1500);
           } else {
-            if (!this.wrongCounter) {
-              new _win__WEBPACK_IMPORTED_MODULE_3__["default"](this.node).winStart();
-            } else {
-              new _lose__WEBPACK_IMPORTED_MODULE_4__["default"](this.node, [this.wrongCounter, this.attempCounter]).loseStart();
-            }
+            (!this.wrongCounter) ? new _win__WEBPACK_IMPORTED_MODULE_3__["default"](this.node).winStart() : new _lose__WEBPACK_IMPORTED_MODULE_4__["default"](this.node, [this.wrongCounter, this.attempCounter]).loseStart();
           }
         } else {
           this.score.load(item.enWord, 'mistake');
@@ -536,7 +529,7 @@ class Score {
     this.dashboard.forEach((el) => {
       if (el.enWord === word) {
         el[localKey] += 1;
-        el.procent = +(el.right * 100 / (el.right + el.mistake)).toFixed(1) || 0;
+        el.procent = +((el.right * 100) / (el.right + el.mistake)).toFixed(1) || 0;
       }
     });
     Object(_utils_storage__WEBPACK_IMPORTED_MODULE_0__["set"])('score_mauta', this.dashboard);
@@ -573,7 +566,7 @@ class ScoreFeild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] 
     this.dashboardTitle = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](parent.node, 'div', 'dashboard__title');
     this.dashboardCategory = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__category', 'Category');
     this.dashboardEnWord = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__en-word', 'Word');
-    this.dashboardRuWord = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__category', 'Translation');
+    this.dashboardRuWord = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__translation', 'Translate');
     this.dashboardTrain = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__train', 'Trained');
     this.dashboardRight = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__right', 'Correct');
     this.dashboardMistake = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__mistake', 'Incorrect');
@@ -699,13 +692,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Toggle extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  constructor(parentNode, className = '', className2 = '') {
+  constructor(parentNode, className = '') {
     const inner = '<div class="button" id="button-11"><input type="checkbox" class="checkbox"><div class="knobs"><span></span></div> <div class="layer"></div></div>';
     super(parentNode, 'div', className, inner);
     this.isChecked = false;
     this.className = className;
-    this.className2 = className2;
-    this.isChecked = false;
 
     this.node.onclick = () => {
       this.isChecked = !this.isChecked;
@@ -788,6 +779,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 fetch('../assets/data.json').then((res) => res.json()).then((json) => {
+  const COUNT_CARDS = 8;
   const header = new _utils_control__WEBPACK_IMPORTED_MODULE_1__["default"](document.body, 'header', 'header', '<h1>English for kids </h1>');
   const mode = new _block_toggle__WEBPACK_IMPORTED_MODULE_3__["default"](header.node, 'mode');
   const main = new _utils_control__WEBPACK_IMPORTED_MODULE_1__["default"](document.body, 'main', 'main');
@@ -858,15 +850,10 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         }
         break;
       case 'hard-words':
-        // if (mode.isChecked) {
-        //   // mode.node.onclick();
-        //   mode.node.querySelector('.checkbox').checked = false;
-        // }
-
         field.modeStatus = mode.isChecked;
         const dashboardScore = Object(_utils_storage__WEBPACK_IMPORTED_MODULE_6__["get"])('score_mauta');
-        let wordsKeys = [];
-        let hardWords = dashboardScore.sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_7__["default"])('procent', false)).slice(0, 8);
+        const wordsKeys = [];
+        const hardWords = dashboardScore.filter((item) => item.procent > 0 && item.procent < 100).sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_7__["default"])('procent', false)).slice(0, COUNT_CARDS);
         hardWords.forEach((item) => {
           wordsKeys.push(item.enWord);
         });
@@ -874,19 +861,18 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         for (let i = 0; i < field.hardWords.length; i += 1) {
           field.addItem(field.hardWords[i]);
         }
-
         if (mode.isChecked) {
           field.playMode();
         }
-
-       break;
+        break;
       case 'score':
         new _block_score_field__WEBPACK_IMPORTED_MODULE_5__["default"](field);
         break;
       default:
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;
-        for (let i = 0; i < ourCategoryData.length; i += 1) {
-          field.addItem(ourCategoryData[i]);
+        const cardsForTrain = ourCategoryData.sort(() => Math.random() - 0.5).slice(0, COUNT_CARDS);
+        for (let i = 0; i < cardsForTrain.length; i += 1) {
+          field.addItem(cardsForTrain[i]);
         }
         if (mode.isChecked) {
           field.playMode();
@@ -927,7 +913,7 @@ class Control {
     this.node = document.createElement(tag);
     this.node.className = className;
     this.node.innerHTML = content;
-    this.node.style.backgroundImage = bgrImg;
+    // this.node.style.backgroundImage = bgrImg;
     parentNode.appendChild(this.node);
   }
 

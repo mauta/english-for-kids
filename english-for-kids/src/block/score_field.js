@@ -15,7 +15,7 @@ export default class ScoreFeild extends Control {
     this.dashboardTitle = new Control(parent.node, 'div', 'dashboard__title');
     this.dashboardCategory = new Control(this.dashboardTitle.node, 'button', 'dashboard__category', 'Category');
     this.dashboardEnWord = new Control(this.dashboardTitle.node, 'button', 'dashboard__en-word', 'Word');
-    this.dashboardRuWord = new Control(this.dashboardTitle.node, 'button', 'dashboard__category', 'Translation');
+    this.dashboardRuWord = new Control(this.dashboardTitle.node, 'button', 'dashboard__translation', 'Translate');
     this.dashboardTrain = new Control(this.dashboardTitle.node, 'button', 'dashboard__train', 'Trained');
     this.dashboardRight = new Control(this.dashboardTitle.node, 'button', 'dashboard__right', 'Correct');
     this.dashboardMistake = new Control(this.dashboardTitle.node, 'button', 'dashboard__mistake', 'Incorrect');

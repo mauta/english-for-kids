@@ -56,7 +56,7 @@ export default class Feild extends Control {
 
     gamePanel.btn.node.addEventListener('click', () => {
       playGame();
-      gamePanel.btn.node.textContent = 'repiat';
+      gamePanel.btn.node.style.backgroundImage = "url('../assets/img/repiat.svg')";
     });
 
     this.cards.forEach((element) => {
@@ -70,7 +70,7 @@ export default class Feild extends Control {
           gamePanel.addAchieve(true);
           element.node.style.pointerEvents = 'none';
           i += 1;
-          if (i < 8) {
+          if (i < this.cards.length) {
             setTimeout(playGame, 1500);
           } else {
             (!this.wrongCounter) ? new Win(this.node).winStart() : new Lose(this.node, [this.wrongCounter, this.attempCounter]).loseStart();

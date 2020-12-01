@@ -3,7 +3,7 @@ export default class Control {
     this.node = document.createElement(tag);
     this.node.className = className;
     this.node.innerHTML = content;
-    this.node.style.backgroundImage = bgrImg;
+    // this.node.style.backgroundImage = bgrImg;
     parentNode.appendChild(this.node);
   }
 

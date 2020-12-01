@@ -136,19 +136,34 @@ h1 {
 
 .card {
   position: relative;
-  width: 15vw;
-  min-width: 150px;
+  width: 200px;
   border: 1px solid black;
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
-  margin: 0 1vw 2vw;
+  margin: 0 0 2vw;
   cursor: pointer;
   background-color: white;
   border: 1px solid black;
   box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, .1em .1em .2em gray;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 150px;
+  }
+
+  .card span {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .field {
+    width: 90vw;
+  }
+
 }
 
 .card:hover {
@@ -199,6 +214,12 @@ h1 {
   font-size: 14px;
 }
 
+@media (max-width: 600px) {
+  .menu {
+    margin-left: -180px;
+  }
+}
+
 .menu-active {
   margin-left: 0;
 }
@@ -229,6 +250,12 @@ h1 {
   top: 90px;
   right: 50px;
   z-index: 2;
+}
+
+@media (max-width: 600px) {
+  .mode {
+    right: 30px;
+  }
 }
 
 .knobs,
@@ -467,6 +494,16 @@ h1 {
   margin-top: 25px;
 }
 
+.front .enWord {
+  text-align: left;
+  padding-top: 5px;
+  padding-left: 15px;
+}
+
+.ruWord {
+  padding-top: 5px;
+}
+
 .btn-repiat {
   width: 100px;
   height: 50px;
@@ -486,6 +523,21 @@ h1 {
   width: 50px;
   height: 50px;
   margin: 0 auto;
+  color: transparent;
+  background-image: url('../assets/img/play.svg');
+  background-size: 80%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-play:hover{
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }
 
 .left-side {
@@ -624,6 +676,13 @@ h1 {
   flex-grow: 1;
 }
 
+.dashboard__translation {
+  width: 100px;
+  text-align: center;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
 .dashboard__train {
   width: 70px;
   text-align: center;
@@ -631,19 +690,19 @@ h1 {
 }
 
 .dashboard__right {
-  width: 75px;
+  width: 70px;
   text-align: center;
   box-sizing: border-box;
 }
 
 .dashboard__mistake {
-  width: 75px;
+  width: 70px;
   text-align: center;
   box-sizing: border-box;
 }
 
 .dashboard__procent {
-  width: 75px;
+  width: 70px;
   text-align: center;
   box-sizing: border-box;
 }
@@ -685,7 +744,7 @@ h1 {
   color: black;
 }
 
-.btn-play{
+.btn-play {
   font-family: 'NeSkid';
   background-color: var(--select-color);
   border: 1px solid black;
@@ -699,7 +758,7 @@ h1 {
 
 @media (max-width: 900px) {
   .dashboard__title button {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .dashboard {
@@ -710,3 +769,58 @@ h1 {
     width: 80vw;
   }
 }
+
+@media (max-width: 600px) {
+  .dashboard__category,
+  .dashboard__ru-word,
+  .dashboard__translation,
+  .dashboard__en-word {
+    min-width: 65px;
+  }
+
+  .dashboard {
+    font-size: 8px;
+  }
+
+  .dashboard__title button {
+    font-size: 8px;
+  }
+
+  .dashboard__train,
+  .dashboard__right,
+  .dashboard__mistake,
+  .dashboard__procent {
+    width: 25px;
+  }
+
+  .dashboard__title .dashboard__train,
+  .dashboard__title .dashboard__right,
+  .dashboard__title .dashboard__mistake,
+  .dashboard__title .dashboard__procent {
+    font-size: 0;
+    position: relative;
+
+  }
+
+  .dashboard__title .dashboard__procent::after {
+    position: absolute;
+    display: block;
+    content: '';
+    background-image: url(../assets/img/reload.svg);
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+    left: 10px;
+    top: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .dashboard__category{
+    display: none;
+  }
+  .dashboard__ru-word,
+  .dashboard__translation,
+  .dashboard__en-word {
+    min-width: 65px;
+  }
