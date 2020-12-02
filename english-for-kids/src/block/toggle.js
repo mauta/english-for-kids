@@ -3,7 +3,7 @@ import Control from '../utils/control';
 
 export default class Toggle extends Control {
   constructor(parentNode, className = '') {
-    const inner = '<div class="button" id="button-11"><input type="checkbox" class="checkbox"><div class="knobs"><span></span></div> <div class="layer"></div></div>';
+    const inner = '<div class="mode__btn"><input type="checkbox" class="checkbox"><div class="knobs"><span></span></div> <div class="layer"></div></div>';
     super(parentNode, 'div', className, inner);
     this.isChecked = false;
     this.className = className;
@@ -16,7 +16,7 @@ export default class Toggle extends Control {
         root.style.setProperty('--hover-color', '#59A61E');
         root.style.setProperty('--select-color', '#8CBF64');
       } else {
-        root.style.setProperty('--bg-color', '#ebf7fc');
+        root.style.setProperty('--bg-color', '#b3e6fd');
         root.style.setProperty('--hover-color', '#03a9f4');
         root.style.setProperty('--select-color', '#74cef8');
       }

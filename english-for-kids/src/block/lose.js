@@ -15,6 +15,6 @@ export default class Lose extends Control {
     setTimeout(() => {
       location.hash = 'menu';
     }, 5000);
-    new Control(this.node, 'span', 'lose-info', `${this.errors} mistakes of ${this.attempts} attempts`);
+    new Control(this.node, 'span', 'lose-info', `${this.errors}  mistakes  of  ${this.attempts}  attempts`);
   }
 }

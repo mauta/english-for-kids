@@ -12,6 +12,7 @@ import {
   set,
 } from './utils/storage';
 import sortByKey from './utils/sort';
+import filterData from './utils/filter_data';
 
 fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   const COUNT_CARDS = 8;
@@ -32,28 +33,10 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
           train: 0,
           right: 0,
           mistake: 0,
-          procent: 0,
+          precent: 0,
         };
         result.push(temp);
       });
-    });
-    return result;
-  };
-
-  const makeHard = (data, words) => {
-    const result = [];
-    let dataVal = [];
-    for (let i = 0; i < data.length; i += 1) {
-      dataVal.push(data[i].data);
-    }
-    dataVal = dataVal.flat();
-
-    words.forEach((el) => {
-      for (let i = 0; i < dataVal.length; i += 1) {
-        if (dataVal[i].enWord === el) {
-          result.push(dataVal[i]);
-        }
-      }
     });
     return result;
   };
@@ -88,11 +71,11 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         field.modeStatus = mode.isChecked;
         const dashboardScore = get('score_mauta');
         const wordsKeys = [];
-        const hardWords = dashboardScore.filter((item) => item.procent > 0 && item.procent < 100).sort(sortByKey('procent', false)).slice(0, COUNT_CARDS);
+        const hardWords = dashboardScore.filter((item) => item.precent > 0 && item.precent < 100).sort(sortByKey('precent', false)).slice(0, COUNT_CARDS);
         hardWords.forEach((item) => {
           wordsKeys.push(item.enWord);
         });
-        field.hardWords = makeHard(json, wordsKeys);
+        field.hardWords = filterData(json, wordsKeys);
         for (let i = 0; i < field.hardWords.length; i += 1) {
           field.addItem(field.hardWords[i]);
         }

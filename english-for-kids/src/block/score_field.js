@@ -19,14 +19,14 @@ export default class ScoreFeild extends Control {
     this.dashboardTrain = new Control(this.dashboardTitle.node, 'button', 'dashboard__train', 'Trained');
     this.dashboardRight = new Control(this.dashboardTitle.node, 'button', 'dashboard__right', 'Correct');
     this.dashboardMistake = new Control(this.dashboardTitle.node, 'button', 'dashboard__mistake', 'Incorrect');
-    this.dashboardProcent = new Control(this.dashboardTitle.node, 'button', 'dashboard__procent', 'Progress');
+    this.dashboardprecent = new Control(this.dashboardTitle.node, 'button', 'dashboard__precent', 'Progress');
     this.categorySort = true;
     this.enWordSort = false;
     this.ruWordSort = false;
     this.trainSort = false;
     this.rightSort = false;
     this.mistakeSort = false;
-    this.procentSort = false;
+    this.precentSort = false;
     this.dashboard = new Control(parent.node, 'div', 'dashboard');
     this.dashboardScore = get('score_mauta');
 
@@ -41,7 +41,7 @@ export default class ScoreFeild extends Control {
           train,
           right,
           mistake,
-          procent,
+          precent,
         } = item;
         const dashLine = `<div class="dashboard__category">${category}</div>
       <div class="dashboard__en-word">${enWord}</div>
@@ -49,7 +49,7 @@ export default class ScoreFeild extends Control {
       <div class="dashboard__train">${train}</div>
       <div class="dashboard__right">${right}</div>
       <div class="dashboard__mistake">${mistake}</div>
-      <div class="dashboard__procent">${procent} %</div>`;
+      <div class="dashboard__precent">${precent} %</div>`;
         new Control(this.dashboard.node, 'div', 'dashboard__line', dashLine);
       });
     };
@@ -98,10 +98,10 @@ export default class ScoreFeild extends Control {
       render();
     });
 
-    this.dashboardProcent.node.addEventListener('click', () => {
+    this.dashboardprecent.node.addEventListener('click', () => {
       this.dashboard.clear();
-      this.procentSort = !this.procentSort;
-      this.dashboardScore = this.dashboardScore.sort(sortByKey('procent', this.procentSort));
+      this.precentSort = !this.precentSort;
+      this.dashboardScore = this.dashboardScore.sort(sortByKey('precent', this.precentSort));
       render();
     });
 
@@ -111,6 +111,7 @@ export default class ScoreFeild extends Control {
         item.train = 0;
         item.right = 0;
         item.mistake = 0;
+        item.precent = 0;
       });
 
       set('score_mauta', this.dashboardScore);

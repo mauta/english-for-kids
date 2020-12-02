@@ -280,6 +280,10 @@ class Feild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
     let i = 0;
     let item = cardsShuffled[i];
 
+    this.cards.forEach((element) => {
+      element.node.classList.add('flip-container-disabled');
+    });
+
     const playGame = () => {
       this.cards.forEach((element) => {
         element.node.classList.add('flip-container-disabled');
@@ -312,7 +316,7 @@ class Feild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
           if (i < this.cards.length) {
             setTimeout(playGame, 1500);
           } else {
-            (!this.wrongCounter) ? new _win__WEBPACK_IMPORTED_MODULE_3__["default"](this.node).winStart() : new _lose__WEBPACK_IMPORTED_MODULE_4__["default"](this.node, [this.wrongCounter, this.attempCounter]).loseStart();
+            (!this.wrongCounter) ? new _win__WEBPACK_IMPORTED_MODULE_3__["default"](this.node).winStart(): new _lose__WEBPACK_IMPORTED_MODULE_4__["default"](this.node, [this.wrongCounter, this.attempCounter]).loseStart();
           }
         } else {
           this.score.load(item.enWord, 'mistake');
@@ -392,7 +396,7 @@ class Lose extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
     setTimeout(() => {
       location.hash = 'menu';
     }, 5000);
-    new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.node, 'span', 'lose-info', `${this.errors} mistakes of ${this.attempts} attempts`);
+    new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.node, 'span', 'lose-info', `${this.errors}  mistakes  of  ${this.attempts}  attempts`);
   }
 }
 
@@ -529,7 +533,7 @@ class Score {
     this.dashboard.forEach((el) => {
       if (el.enWord === word) {
         el[localKey] += 1;
-        el.procent = +((el.right * 100) / (el.right + el.mistake)).toFixed(1) || 0;
+        el.precent = +((el.right * 100) / (el.right + el.mistake)).toFixed(1) || 0;
       }
     });
     Object(_utils_storage__WEBPACK_IMPORTED_MODULE_0__["set"])('score_mauta', this.dashboard);
@@ -570,14 +574,14 @@ class ScoreFeild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] 
     this.dashboardTrain = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__train', 'Trained');
     this.dashboardRight = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__right', 'Correct');
     this.dashboardMistake = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__mistake', 'Incorrect');
-    this.dashboardProcent = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__procent', 'Progress');
+    this.dashboardprecent = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__precent', 'Progress');
     this.categorySort = true;
     this.enWordSort = false;
     this.ruWordSort = false;
     this.trainSort = false;
     this.rightSort = false;
     this.mistakeSort = false;
-    this.procentSort = false;
+    this.precentSort = false;
     this.dashboard = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](parent.node, 'div', 'dashboard');
     this.dashboardScore = Object(_utils_storage__WEBPACK_IMPORTED_MODULE_1__["get"])('score_mauta');
 
@@ -592,7 +596,7 @@ class ScoreFeild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] 
           train,
           right,
           mistake,
-          procent,
+          precent,
         } = item;
         const dashLine = `<div class="dashboard__category">${category}</div>
       <div class="dashboard__en-word">${enWord}</div>
@@ -600,7 +604,7 @@ class ScoreFeild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] 
       <div class="dashboard__train">${train}</div>
       <div class="dashboard__right">${right}</div>
       <div class="dashboard__mistake">${mistake}</div>
-      <div class="dashboard__procent">${procent} %</div>`;
+      <div class="dashboard__precent">${precent} %</div>`;
         new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboard.node, 'div', 'dashboard__line', dashLine);
       });
     };
@@ -649,10 +653,10 @@ class ScoreFeild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] 
       render();
     });
 
-    this.dashboardProcent.node.addEventListener('click', () => {
+    this.dashboardprecent.node.addEventListener('click', () => {
       this.dashboard.clear();
-      this.procentSort = !this.procentSort;
-      this.dashboardScore = this.dashboardScore.sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_2__["default"])('procent', this.procentSort));
+      this.precentSort = !this.precentSort;
+      this.dashboardScore = this.dashboardScore.sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_2__["default"])('precent', this.precentSort));
       render();
     });
 
@@ -662,6 +666,7 @@ class ScoreFeild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] 
         item.train = 0;
         item.right = 0;
         item.mistake = 0;
+        item.precent = 0;
       });
 
       Object(_utils_storage__WEBPACK_IMPORTED_MODULE_1__["set"])('score_mauta', this.dashboardScore);
@@ -693,7 +698,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class Toggle extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
   constructor(parentNode, className = '') {
-    const inner = '<div class="button" id="button-11"><input type="checkbox" class="checkbox"><div class="knobs"><span></span></div> <div class="layer"></div></div>';
+    const inner = '<div class="mode__btn"><input type="checkbox" class="checkbox"><div class="knobs"><span></span></div> <div class="layer"></div></div>';
     super(parentNode, 'div', className, inner);
     this.isChecked = false;
     this.className = className;
@@ -706,7 +711,7 @@ class Toggle extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
         root.style.setProperty('--hover-color', '#59A61E');
         root.style.setProperty('--select-color', '#8CBF64');
       } else {
-        root.style.setProperty('--bg-color', '#ebf7fc');
+        root.style.setProperty('--bg-color', '#b3e6fd');
         root.style.setProperty('--hover-color', '#03a9f4');
         root.style.setProperty('--select-color', '#74cef8');
       }
@@ -732,7 +737,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class Win extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
   constructor(parentNode) {
-    super(parentNode, 'div', 'popup-win', '<img src = "assets/img/win.png" >');
+    super(parentNode, 'div', 'popup-win', '<img class="popup-win__img" src = "assets/img/win.png" width="450" height="333">');
     this.audio = new Audio();
     this.audio.src = 'assets/sound/win.mp3';
   }
@@ -742,7 +747,7 @@ class Win extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.audio.play();
     setTimeout(() => {
       location.hash = 'menu';
-    }, 5000);
+    }, 4000);
   }
 }
 
@@ -766,9 +771,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _block_score_field__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./block/score_field */ "./src/block/score_field.js");
 /* harmony import */ var _utils_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/storage */ "./src/utils/storage.js");
 /* harmony import */ var _utils_sort__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/sort */ "./src/utils/sort.js");
+/* harmony import */ var _utils_filter_data__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/filter_data */ "./src/utils/filter_data.js");
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-new */
 /* eslint-disable no-restricted-globals */
+
 
 
 
@@ -797,28 +804,10 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
           train: 0,
           right: 0,
           mistake: 0,
-          procent: 0,
+          precent: 0,
         };
         result.push(temp);
       });
-    });
-    return result;
-  };
-
-  const makeHard = (data, words) => {
-    const result = [];
-    let dataVal = [];
-    for (let i = 0; i < data.length; i += 1) {
-      dataVal.push(data[i].data);
-    }
-    dataVal = dataVal.flat();
-
-    words.forEach((el) => {
-      for (let i = 0; i < dataVal.length; i += 1) {
-        if (dataVal[i].enWord === el) {
-          result.push(dataVal[i]);
-        }
-      }
     });
     return result;
   };
@@ -853,11 +842,11 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         field.modeStatus = mode.isChecked;
         const dashboardScore = Object(_utils_storage__WEBPACK_IMPORTED_MODULE_6__["get"])('score_mauta');
         const wordsKeys = [];
-        const hardWords = dashboardScore.filter((item) => item.procent > 0 && item.procent < 100).sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_7__["default"])('procent', false)).slice(0, COUNT_CARDS);
+        const hardWords = dashboardScore.filter((item) => item.precent > 0 && item.precent < 100).sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_7__["default"])('precent', false)).slice(0, COUNT_CARDS);
         hardWords.forEach((item) => {
           wordsKeys.push(item.enWord);
         });
-        field.hardWords = makeHard(json, wordsKeys);
+        field.hardWords = Object(_utils_filter_data__WEBPACK_IMPORTED_MODULE_8__["default"])(json, wordsKeys);
         for (let i = 0; i < field.hardWords.length; i += 1) {
           field.addItem(field.hardWords[i]);
         }
@@ -909,11 +898,10 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Control; });
 class Control {
-  constructor(parentNode, tag = 'div', className = '', content = '', bgrImg = 'none') {
+  constructor(parentNode, tag = 'div', className = '', content = '') {
     this.node = document.createElement(tag);
     this.node.className = className;
     this.node.innerHTML = content;
-    // this.node.style.backgroundImage = bgrImg;
     parentNode.appendChild(this.node);
   }
 
@@ -923,6 +911,36 @@ class Control {
     }
   }
 }
+
+
+/***/ }),
+
+/***/ "./src/utils/filter_data.js":
+/*!**********************************!*\
+  !*** ./src/utils/filter_data.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return filterData; });
+function filterData(data, words) {
+  const result = [];
+  let dataValue = [];
+  for (let i = 0; i < data.length; i += 1) {
+    dataValue.push(data[i].data);
+  }
+  dataValue = dataValue.flat();
+  words.forEach((el) => {
+    for (let i = 0; i < dataValue.length; i += 1) {
+      if (dataValue[i].enWord === el) {
+        result.push(dataValue[i]);
+      }
+    }
+  });
+  return result;
+};
 
 
 /***/ }),

@@ -41,6 +41,10 @@ export default class Feild extends Control {
     let i = 0;
     let item = cardsShuffled[i];
 
+    this.cards.forEach((element) => {
+      element.node.classList.add('flip-container-disabled');
+    });
+
     const playGame = () => {
       this.cards.forEach((element) => {
         element.node.classList.add('flip-container-disabled');
@@ -73,7 +77,7 @@ export default class Feild extends Control {
           if (i < this.cards.length) {
             setTimeout(playGame, 1500);
           } else {
-            (!this.wrongCounter) ? new Win(this.node).winStart() : new Lose(this.node, [this.wrongCounter, this.attempCounter]).loseStart();
+            (!this.wrongCounter) ? new Win(this.node).winStart(): new Lose(this.node, [this.wrongCounter, this.attempCounter]).loseStart();
           }
         } else {
           this.score.load(item.enWord, 'mistake');
