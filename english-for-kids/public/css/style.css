@@ -893,3 +893,78 @@ h1 {
   .dashboard__en-word {
     min-width: 65px;
   }
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  margin-top: 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media (max-width: 900px){
+  .footer{
+    position: relative;
+  }
+}
+
+.footer span{
+  margin: 10px;
+  font-size: 15px;
+}
+
+.footer a{
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+  font-size: 13px;
+  position: relative;
+}
+
+.footer a:hover{
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+.link-gh{
+  padding-left: 25px;
+  padding-top: 4px;
+}
+
+.link-gh::before{
+ display: block;
+ position: absolute;
+ content: '';
+ width: 20px;
+ height: 20px;
+ top: -4px;
+ left: 0;
+ background-image: url('../assets/img/github_logo.svg');
+ background-size: contain;
+}
+
+.link-rs{
+  padding-left: 55px;
+  margin-right: 30px;
+}
+
+.link-rs::before{
+ display: block;
+ position: absolute;
+ content: '';
+ width: 50px;
+ height: 20px;
+ top: -14px;
+ left: 0;
+ background-image: url('../assets/img/rs_school_js.svg');
+ background-repeat: no-repeat;
+ background-size: contain;
+}

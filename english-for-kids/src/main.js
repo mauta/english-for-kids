@@ -5,6 +5,7 @@ import Menu from './block/menu';
 import Control from './utils/control';
 import MenuCard from './block/menu_card';
 import Toggle from './block/toggle';
+import Footer from './block/footer';
 import Field from './block/feild';
 import ScoreFeild from './block/score_field';
 import {
@@ -20,6 +21,7 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   const mode = new Toggle(header.node, 'mode');
   const main = new Control(document.body, 'main', 'main');
   const elem = new Menu(header.node, 'menu', 'menu__item menu__item--none', 'menu__item menu__item--selected');
+  const footer = new Footer();
 
   const makeScore = (data) => {
     const result = [];
