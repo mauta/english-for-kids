@@ -332,6 +332,31 @@ class Feild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
 
 /***/ }),
 
+/***/ "./src/block/footer.js":
+/*!*****************************!*\
+  !*** ./src/block/footer.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Footer; });
+/* harmony import */ var _utils_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/control */ "./src/utils/control.js");
+
+
+class Footer extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor() {
+    const inner = `<a class="link-gh" href="https://github.com/mauta"> mauta</a>
+    <span> in </span>
+    <a class="link-rs" href="https://rs.school/js/"></a>`;
+    super(document.body, 'footer', 'footer', inner);
+  }
+}
+
+
+/***/ }),
+
 /***/ "./src/block/game_panel.js":
 /*!*********************************!*\
   !*** ./src/block/game_panel.js ***!
@@ -555,10 +580,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ScoreFeild; });
 /* harmony import */ var _utils_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/control */ "./src/utils/control.js");
 /* harmony import */ var _utils_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/storage */ "./src/utils/storage.js");
-/* harmony import */ var _utils_sort__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/sort */ "./src/utils/sort.js");
+/* harmony import */ var _sort_btn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sort_btn */ "./src/block/sort_btn.js");
 
 
 
+// import sortByKey from '../utils/sort';
 
 
 class ScoreFeild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -568,96 +594,11 @@ class ScoreFeild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] 
     this.scoreTrain = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.scoreBtns.node, 'button', 'score__train', 'Train hard');
     this.scoreReset = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.scoreBtns.node, 'button', 'score__reset', 'Reset');
     this.dashboardTitle = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](parent.node, 'div', 'dashboard__title');
-    this.dashboardCategory = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__category', 'Category');
-    this.dashboardEnWord = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__en-word', 'Word');
-    this.dashboardRuWord = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__translation', 'Translate');
-    this.dashboardTrain = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__train', 'Trained');
-    this.dashboardRight = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__right', 'Correct');
-    this.dashboardMistake = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__mistake', 'Incorrect');
-    this.dashboardprecent = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboardTitle.node, 'button', 'dashboard__precent', 'Progress');
-    this.categorySort = true;
-    this.enWordSort = false;
-    this.ruWordSort = false;
-    this.trainSort = false;
-    this.rightSort = false;
-    this.mistakeSort = false;
-    this.precentSort = false;
-    this.dashboard = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](parent.node, 'div', 'dashboard');
     this.dashboardScore = Object(_utils_storage__WEBPACK_IMPORTED_MODULE_1__["get"])('score_mauta');
-
-    this.dashboardScore = this.dashboardScore.sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_2__["default"])('category'));
-
-    const render = () => {
-      this.dashboardScore.forEach((item) => {
-        const {
-          enWord,
-          ruWord,
-          category,
-          train,
-          right,
-          mistake,
-          precent,
-        } = item;
-        const dashLine = `<div class="dashboard__category">${category}</div>
-      <div class="dashboard__en-word">${enWord}</div>
-      <div class="dashboard__ru-word">${ruWord}</div>
-      <div class="dashboard__train">${train}</div>
-      <div class="dashboard__right">${right}</div>
-      <div class="dashboard__mistake">${mistake}</div>
-      <div class="dashboard__precent">${precent} %</div>`;
-        new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboard.node, 'div', 'dashboard__line', dashLine);
-      });
-    };
-
-    render();
-
-    this.dashboardCategory.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.categorySort = !this.categorySort;
-      this.dashboardScore = this.dashboardScore.sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_2__["default"])('category', this.categorySort));
-      render();
-    });
-
-    this.dashboardEnWord.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.enWordSort = !this.enWordSort;
-      this.dashboardScore = this.dashboardScore.sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_2__["default"])('enWord', this.enWordSort));
-      render();
-    });
-
-    this.dashboardRuWord.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.ruWordSort = !this.ruWordSort;
-      this.dashboardScore = this.dashboardScore.sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_2__["default"])('ruWord', this.ruWordSort));
-      render();
-    });
-
-    this.dashboardTrain.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.trainSort = !this.trainSort;
-      this.dashboardScore = this.dashboardScore.sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_2__["default"])('train', this.trainSort));
-      render();
-    });
-
-    this.dashboardRight.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.rightSort = !this.rightSort;
-      this.dashboardScore = this.dashboardScore.sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_2__["default"])('right', this.rightSort));
-      render();
-    });
-
-    this.dashboardMistake.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.mistakeSort = !this.mistakeSort;
-      this.dashboardScore = this.dashboardScore.sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_2__["default"])('mistake', this.mistakeSort));
-      render();
-    });
-
-    this.dashboardprecent.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.precentSort = !this.precentSort;
-      this.dashboardScore = this.dashboardScore.sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_2__["default"])('precent', this.precentSort));
-      render();
+    this.arrSortbtns = ['category', 'word', 'translate', 'train', 'right', 'mistake', 'precent'];
+    this.dashboard = new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](parent.node, 'div', 'dashboard');
+    this.arrSortbtns.forEach((item) => {
+      new _sort_btn__WEBPACK_IMPORTED_MODULE_2__["default"](this.dashboardTitle.node, `dashboard__${item}`, item, this);
     });
 
     this.scoreReset.node.addEventListener('click', () => {
@@ -670,11 +611,72 @@ class ScoreFeild extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] 
       });
 
       Object(_utils_storage__WEBPACK_IMPORTED_MODULE_1__["set"])('score_mauta', this.dashboardScore);
-      render();
+      this.render();
     });
 
     this.scoreTrain.node.addEventListener('click', () => {
       location.hash = 'hard-words';
+    });
+  }
+
+  render() {
+    this.dashboardScore.forEach((item) => {
+      const {
+        enWord,
+        ruWord,
+        category,
+        train,
+        right,
+        mistake,
+        precent,
+      } = item;
+      const dashLine = `<div class="dashboard__category">${category}</div>
+    <div class="dashboard__word">${enWord}</div>
+    <div class="dashboard__translate">${ruWord}</div>
+    <div class="dashboard__train">${train}</div>
+    <div class="dashboard__right">${right}</div>
+    <div class="dashboard__mistake">${mistake}</div>
+    <div class="dashboard__precent">${precent} %</div>`;
+      new _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"](this.dashboard.node, 'div', 'dashboard__line', dashLine);
+    });
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/block/sort_btn.js":
+/*!*******************************!*\
+  !*** ./src/block/sort_btn.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SortBtn; });
+/* harmony import */ var _utils_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/control */ "./src/utils/control.js");
+/* harmony import */ var _utils_sort__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/sort */ "./src/utils/sort.js");
+/* harmony import */ var _utils_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/storage */ "./src/utils/storage.js");
+/* eslint-disable no-unused-expressions */
+
+
+
+
+class SortBtn extends _utils_control__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  constructor(parentNode, className = '', inner, table) {
+    super(parentNode, 'button', className, inner);
+    this.node.setAttribute('type', 'button');
+    this.dashboard = table.dashboard;
+    this.dashboardScore = Object(_utils_storage__WEBPACK_IMPORTED_MODULE_2__["get"])('score_mauta');
+    this.sortDirection = (inner === 'category');
+    this.node.addEventListener('click', () => {
+      inner = (inner === 'word') ? 'enWord' : inner;
+      inner = (inner === 'translate') ? 'ruWord' : inner;
+      this.dashboard.clear();
+      this.sortDirection = !this.sortDirection;
+      table.dashboardScore = this.dashboardScore.sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_1__["default"])(inner, this.sortDirection));
+      table.render();
     });
   }
 }
@@ -767,14 +769,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/control */ "./src/utils/control.js");
 /* harmony import */ var _block_menu_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./block/menu_card */ "./src/block/menu_card.js");
 /* harmony import */ var _block_toggle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block/toggle */ "./src/block/toggle.js");
-/* harmony import */ var _block_feild__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block/feild */ "./src/block/feild.js");
-/* harmony import */ var _block_score_field__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./block/score_field */ "./src/block/score_field.js");
-/* harmony import */ var _utils_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/storage */ "./src/utils/storage.js");
-/* harmony import */ var _utils_sort__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/sort */ "./src/utils/sort.js");
-/* harmony import */ var _utils_filter_data__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/filter_data */ "./src/utils/filter_data.js");
+/* harmony import */ var _block_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block/footer */ "./src/block/footer.js");
+/* harmony import */ var _block_feild__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./block/feild */ "./src/block/feild.js");
+/* harmony import */ var _block_score_field__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./block/score_field */ "./src/block/score_field.js");
+/* harmony import */ var _utils_storage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/storage */ "./src/utils/storage.js");
+/* harmony import */ var _utils_sort__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/sort */ "./src/utils/sort.js");
+/* harmony import */ var _utils_filter_data__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/filter_data */ "./src/utils/filter_data.js");
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-new */
 /* eslint-disable no-restricted-globals */
+
 
 
 
@@ -791,6 +795,7 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
   const mode = new _block_toggle__WEBPACK_IMPORTED_MODULE_3__["default"](header.node, 'mode');
   const main = new _utils_control__WEBPACK_IMPORTED_MODULE_1__["default"](document.body, 'main', 'main');
   const elem = new _block_menu__WEBPACK_IMPORTED_MODULE_0__["default"](header.node, 'menu', 'menu__item menu__item--none', 'menu__item menu__item--selected');
+  const footer = new _block_footer__WEBPACK_IMPORTED_MODULE_4__["default"]();
 
   const makeScore = (data) => {
     const result = [];
@@ -812,9 +817,9 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
     return result;
   };
 
-  (Object(_utils_storage__WEBPACK_IMPORTED_MODULE_6__["get"])('score_mauta')) || Object(_utils_storage__WEBPACK_IMPORTED_MODULE_6__["set"])('score_mauta', makeScore(json));
+  (Object(_utils_storage__WEBPACK_IMPORTED_MODULE_7__["get"])('score_mauta')) || Object(_utils_storage__WEBPACK_IMPORTED_MODULE_7__["set"])('score_mauta', makeScore(json));
 
-  const field = new _block_feild__WEBPACK_IMPORTED_MODULE_4__["default"](main.node, 'field', mode.isChecked);
+  const field = new _block_feild__WEBPACK_IMPORTED_MODULE_5__["default"](main.node, 'field', mode.isChecked);
 
   elem.addItem('menu');
   json.forEach((item) => elem.addItem(item.category, item.categoryImg));
@@ -840,13 +845,13 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         break;
       case 'hard-words':
         field.modeStatus = mode.isChecked;
-        const dashboardScore = Object(_utils_storage__WEBPACK_IMPORTED_MODULE_6__["get"])('score_mauta');
+        const dashboardScore = Object(_utils_storage__WEBPACK_IMPORTED_MODULE_7__["get"])('score_mauta');
         const wordsKeys = [];
-        const hardWords = dashboardScore.filter((item) => item.precent > 0 && item.precent < 100).sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_7__["default"])('precent', false)).slice(0, COUNT_CARDS);
+        const hardWords = dashboardScore.filter((item) => item.precent > 0 && item.precent < 100).sort(Object(_utils_sort__WEBPACK_IMPORTED_MODULE_8__["default"])('precent', false)).slice(0, COUNT_CARDS);
         hardWords.forEach((item) => {
           wordsKeys.push(item.enWord);
         });
-        field.hardWords = Object(_utils_filter_data__WEBPACK_IMPORTED_MODULE_8__["default"])(json, wordsKeys);
+        field.hardWords = Object(_utils_filter_data__WEBPACK_IMPORTED_MODULE_9__["default"])(json, wordsKeys);
         for (let i = 0; i < field.hardWords.length; i += 1) {
           field.addItem(field.hardWords[i]);
         }
@@ -855,7 +860,8 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         }
         break;
       case 'score':
-        new _block_score_field__WEBPACK_IMPORTED_MODULE_5__["default"](field);
+        const scoreField = new _block_score_field__WEBPACK_IMPORTED_MODULE_6__["default"](field);
+        scoreField.render();
         break;
       default:
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;
@@ -940,7 +946,7 @@ function filterData(data, words) {
     }
   });
   return result;
-};
+}
 
 
 /***/ }),
@@ -957,7 +963,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return sortbyKey; });
 function sortbyKey(key, direction = true) {
   return (a, b) => ((direction) ? (a[key] >= b[key] ? 1 : -1) : (a[key] <= b[key] ? 1 : -1));
-};
+}
 
 
 /***/ }),

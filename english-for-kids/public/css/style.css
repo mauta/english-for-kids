@@ -685,14 +685,14 @@ h1 {
   flex-grow: 1;
 }
 
-.dashboard__en-word {
+.dashboard__word {
   width: 100px;
   text-align: center;
   box-sizing: border-box;
   flex-grow: 1;
 }
 
-.dashboard__ru-word {
+.dashboard__translate {
   width: 100px;
   text-align: center;
   box-sizing: border-box;
@@ -796,9 +796,8 @@ h1 {
 @media (max-width: 600px) {
 
   .dashboard__category,
-  .dashboard__ru-word,
-  .dashboard__translation,
-  .dashboard__en-word {
+  .dashboard__translate,
+  .dashboard__word {
     min-width: 65px;
   }
 
@@ -888,9 +887,8 @@ h1 {
     display: none;
   }
 
-  .dashboard__ru-word,
-  .dashboard__translation,
-  .dashboard__en-word {
+  .dashboard__translate,
+  .dashboard__enord {
     min-width: 65px;
   }
 }

@@ -13,4 +13,4 @@ export default function filterData(data, words) {
     }
   });
   return result;
-};
+}

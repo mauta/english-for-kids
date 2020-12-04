@@ -86,7 +86,8 @@ fetch('../assets/data.json').then((res) => res.json()).then((json) => {
         }
         break;
       case 'score':
-        new ScoreFeild(field);
+        const scoreField = new ScoreFeild(field);
+        scoreField.render();
         break;
       default:
         const ourCategoryData = json.find((item) => categoryHash === item.category).data;

@@ -4,7 +4,8 @@ import {
   set,
 } from '../utils/storage';
 
-import sortByKey from '../utils/sort';
+// import sortByKey from '../utils/sort';
+import SortBtn from './sort_btn';
 
 export default class ScoreFeild extends Control {
   constructor(parent) {
@@ -13,96 +14,11 @@ export default class ScoreFeild extends Control {
     this.scoreTrain = new Control(this.scoreBtns.node, 'button', 'score__train', 'Train hard');
     this.scoreReset = new Control(this.scoreBtns.node, 'button', 'score__reset', 'Reset');
     this.dashboardTitle = new Control(parent.node, 'div', 'dashboard__title');
-    this.dashboardCategory = new Control(this.dashboardTitle.node, 'button', 'dashboard__category', 'Category');
-    this.dashboardEnWord = new Control(this.dashboardTitle.node, 'button', 'dashboard__en-word', 'Word');
-    this.dashboardRuWord = new Control(this.dashboardTitle.node, 'button', 'dashboard__translation', 'Translate');
-    this.dashboardTrain = new Control(this.dashboardTitle.node, 'button', 'dashboard__train', 'Trained');
-    this.dashboardRight = new Control(this.dashboardTitle.node, 'button', 'dashboard__right', 'Correct');
-    this.dashboardMistake = new Control(this.dashboardTitle.node, 'button', 'dashboard__mistake', 'Incorrect');
-    this.dashboardprecent = new Control(this.dashboardTitle.node, 'button', 'dashboard__precent', 'Progress');
-    this.categorySort = true;
-    this.enWordSort = false;
-    this.ruWordSort = false;
-    this.trainSort = false;
-    this.rightSort = false;
-    this.mistakeSort = false;
-    this.precentSort = false;
-    this.dashboard = new Control(parent.node, 'div', 'dashboard');
     this.dashboardScore = get('score_mauta');
-
-    this.dashboardScore = this.dashboardScore.sort(sortByKey('category'));
-
-    const render = () => {
-      this.dashboardScore.forEach((item) => {
-        const {
-          enWord,
-          ruWord,
-          category,
-          train,
-          right,
-          mistake,
-          precent,
-        } = item;
-        const dashLine = `<div class="dashboard__category">${category}</div>
-      <div class="dashboard__en-word">${enWord}</div>
-      <div class="dashboard__ru-word">${ruWord}</div>
-      <div class="dashboard__train">${train}</div>
-      <div class="dashboard__right">${right}</div>
-      <div class="dashboard__mistake">${mistake}</div>
-      <div class="dashboard__precent">${precent} %</div>`;
-        new Control(this.dashboard.node, 'div', 'dashboard__line', dashLine);
-      });
-    };
-
-    render();
-
-    this.dashboardCategory.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.categorySort = !this.categorySort;
-      this.dashboardScore = this.dashboardScore.sort(sortByKey('category', this.categorySort));
-      render();
-    });
-
-    this.dashboardEnWord.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.enWordSort = !this.enWordSort;
-      this.dashboardScore = this.dashboardScore.sort(sortByKey('enWord', this.enWordSort));
-      render();
-    });
-
-    this.dashboardRuWord.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.ruWordSort = !this.ruWordSort;
-      this.dashboardScore = this.dashboardScore.sort(sortByKey('ruWord', this.ruWordSort));
-      render();
-    });
-
-    this.dashboardTrain.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.trainSort = !this.trainSort;
-      this.dashboardScore = this.dashboardScore.sort(sortByKey('train', this.trainSort));
-      render();
-    });
-
-    this.dashboardRight.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.rightSort = !this.rightSort;
-      this.dashboardScore = this.dashboardScore.sort(sortByKey('right', this.rightSort));
-      render();
-    });
-
-    this.dashboardMistake.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.mistakeSort = !this.mistakeSort;
-      this.dashboardScore = this.dashboardScore.sort(sortByKey('mistake', this.mistakeSort));
-      render();
-    });
-
-    this.dashboardprecent.node.addEventListener('click', () => {
-      this.dashboard.clear();
-      this.precentSort = !this.precentSort;
-      this.dashboardScore = this.dashboardScore.sort(sortByKey('precent', this.precentSort));
-      render();
+    this.arrSortbtns = ['category', 'word', 'translate', 'train', 'right', 'mistake', 'precent'];
+    this.dashboard = new Control(parent.node, 'div', 'dashboard');
+    this.arrSortbtns.forEach((item) => {
+      new SortBtn(this.dashboardTitle.node, `dashboard__${item}`, item, this);
     });
 
     this.scoreReset.node.addEventListener('click', () => {
@@ -115,11 +31,33 @@ export default class ScoreFeild extends Control {
       });
 
       set('score_mauta', this.dashboardScore);
-      render();
+      this.render();
     });
 
     this.scoreTrain.node.addEventListener('click', () => {
       location.hash = 'hard-words';
+    });
+  }
+
+  render() {
+    this.dashboardScore.forEach((item) => {
+      const {
+        enWord,
+        ruWord,
+        category,
+        train,
+        right,
+        mistake,
+        precent,
+      } = item;
+      const dashLine = `<div class="dashboard__category">${category}</div>
+    <div class="dashboard__word">${enWord}</div>
+    <div class="dashboard__translate">${ruWord}</div>
+    <div class="dashboard__train">${train}</div>
+    <div class="dashboard__right">${right}</div>
+    <div class="dashboard__mistake">${mistake}</div>
+    <div class="dashboard__precent">${precent} %</div>`;
+      new Control(this.dashboard.node, 'div', 'dashboard__line', dashLine);
     });
   }
 }
